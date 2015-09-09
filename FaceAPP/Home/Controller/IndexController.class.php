@@ -11,11 +11,12 @@ class IndexController extends Controller {
             $this->error('没有openid');
         }
         $string = 'dsadsadsadsadsadsa';
+        $time = time();
         $access = array(
                 'token' => 'gh_68f0a1ffc303',
-                'timestamp' => time(),
+                'timestamp' => $time,
                 'string' => $string,
-                'secret' => sha1(sha1($timestamp) . md5($string) . "redrock"),
+                'secret' => sha1(sha1($time) . md5($string) . "redrock"),
                 'openid' => $openid
         );
         $url = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/userInfo";
