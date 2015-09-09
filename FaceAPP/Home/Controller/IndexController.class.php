@@ -26,8 +26,12 @@ class IndexController extends Controller {
         if($res1 && $res2){
             $stuId = $res2['stuId'];
             $stuSex = $res1['sex'];
-            session('uid', $stuId);
-            session('sex', $stuSex);
+            if($stuID >= 2015000000 ){
+                session('uid', $stuId);
+                session('sex', $stuSex);
+            }else{
+                $this->error("你不是小小鲜肉哦");
+            }
         }else{
             $this->error('不存在该同学');
         }
