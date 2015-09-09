@@ -19,9 +19,9 @@ class IndexController extends Controller {
                 'openid' => $openid
         );
         $url = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/userInfo";
-        $res1 = $this->curl_api($url1, $access);
+        $res1 = $this->curl_api($url, $access);
         $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/bindVerify";
-        $res2 = $this->curl_api($url2, $access);
+        $res2 = $this->curl_api($url, $access);
         if($res1 && $res2){
             $stuId = $res2->stuId;
             $stuSex = $res1->sex;
