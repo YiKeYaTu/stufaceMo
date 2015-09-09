@@ -26,7 +26,7 @@ class IndexController extends Controller {
         if($res1 && $res2){
             $stuId = $res2['stuId'];
             $stuSex = $res1['sex'];
-            if($stuID >= 2015000000 ){
+            if($stuId >= 2015000000){
                 session('uid', $stuId);
                 session('sex', $stuSex);
             }else{
