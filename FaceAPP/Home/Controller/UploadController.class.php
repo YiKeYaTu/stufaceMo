@@ -12,6 +12,6 @@ class UploadController extends Controller {
     		'sex' => session('sex'),
     		'post.form' => 'mobile',
     	];
-    	$this->ajaxReturn($data, 'json');
+    	$this->ajaxReturn($data);
     }
 }
