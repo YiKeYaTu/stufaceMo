@@ -164,7 +164,7 @@
 							for(key in res[i]){
 								obj[key] = res[i][key];
 							}
-							fragment = '<div class="real-show"><span class="ranking">NO.'+ ++paiming +'</span><img class="real-pic" src="' + obj.pic + '"><p class="word-info"><span class="zan"><i uid=' + obj.uid  + ' class="iconfont1"></i></span><span class="zan-num">' + parseInt(obj.vote) + '</span><span class="more-info"> <a class="more-info" href="' + url_l +  "&uid=" + obj.uid + '"><img src="__PUBLIC__/images/moreinfo.png"></a></span></p></div>';
+							fragment = '<div class="real-show"><span class="ranking">NO.'+ ++paiming +'</span><img class="real-pic" src="' +  "http://202.202.43.41/stuface/Public/images/allimage/" + obj.pic + '"><p class="word-info"><span class="zan"><i uid=' + obj.uid  + ' class="iconfont1"></i></span><span class="zan-num">' + parseInt(obj.vote) + '</span><span class="more-info"> <a class="more-info" href="' + url_l +  "&uid=" + obj.uid + '"><img src="__PUBLIC__/images/moreinfo.png"></a></span></p></div>';
 							temp = fragment;
 							package_outer.append(fragment);
 							fragment = temp;
