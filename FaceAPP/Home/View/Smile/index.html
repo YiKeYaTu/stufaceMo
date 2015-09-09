@@ -39,7 +39,7 @@
 			});
 			$(".vote").bind("touchend",function () {
 
-				$.post("index.php&m=Home&c=Smile&a=vote",window.location.search.split("&")[window.location.search.split("&").length - 1],function (res) {
+				$.post("index.php/Home/Smile/vote",window.location.search.split("&")[window.location.search.split("&").length - 1],function (res) {
 					res = JSON.parse(res);
 					console.log(res);
 					if(res){
