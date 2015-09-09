@@ -18,6 +18,15 @@ class SmileController extends Controller {
         $this->display();
     }
     
+    public function select(){
+        $uid = I('post.uid');
+        if(M('image')->where("uid=$uid")->select()){
+            $this->ajaxReturn(true);
+        }else{
+            $this->ajaxReturn(false);
+        }
+    }
+
     private function get_top($stunum){    //获取排名
         $images = M('image')->order('vote')->select();
         $en = '';

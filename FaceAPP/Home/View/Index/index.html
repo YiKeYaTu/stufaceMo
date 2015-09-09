@@ -256,7 +256,7 @@
 			})
 			$(".search").click(function () {
 				var value = text.val();
-				$.get("","uid=" + value,function (res) {
+				$.post("<{:U('Smile/select')}>","uid=" + value,function (res) {
 					if(res){
 						window.location = "index.php?m=Home&c=smile&a=index&uid=" + value;
 					}else{
