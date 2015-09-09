@@ -220,6 +220,7 @@
 				};
 				$(this).addClass('first-line');
 				if (!$(secondUl).hasClass('second-line')) $(secondUl).addClass('second-line');
+				$(".li-container").eq(0).css('display',"block");
 			});
 			$(secondUl).bind("touchend",function () {
 				if ($(this).hasClass('second-line')) {
@@ -227,6 +228,7 @@
 				};
 				$(this).addClass('first-line');
 				if (!$(firstUl).hasClass('second-line')) $(firstUl).addClass('second-line');
+				$(".li-container").eq(1).css('display',"block");
 			});
 			$(".part-first").css({
 				"background":"url(Public/images/bodybg1.png) 50% 0 no-repeat",
@@ -237,7 +239,7 @@
 				paiming = 0;
 				var target = e.target;
 				if(target.nodeName = "A"&&!target.id){
-					first.text($(target).html());
+					first.text($(target).html() + '<i class="iconfont">&#xe60a;</i>');
 					str1 = first.text();
 					package_outer.html("");
 					check_lodingData = true;
@@ -252,7 +254,7 @@
 				paiming = 0;
 				var target = e.target;
 				if(target.nodeName = "A"&&!target.id){
-					second.text($(target).html());
+					second.text($(target).html() + '<i class="iconfont">&#xe60a;</i>');
 					str2 = second.text();
 					package_outer.html("");
 					check_lodingData = true;
