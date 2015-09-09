@@ -3,11 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class UploadController extends Controller {
     public function index(){
-        if($session('uid') >= 2015000000){
-            $this->display();
-        }else{
-            $this->error('老腊肉不能上传照片-_-|');
-        }
+        $this->display();
     }
 
     public function upload(){
@@ -33,4 +29,5 @@ class UploadController extends Controller {
             }
     	$this->ajaxReturn($data);
     }
-}
+}      
+//
