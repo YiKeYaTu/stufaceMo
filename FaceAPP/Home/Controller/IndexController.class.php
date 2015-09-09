@@ -60,7 +60,10 @@ class IndexController extends Controller {
         // $sex = I('get.sex') ? I('get.sex') : "综合"; //男女   
         if($group == '综合' || $group == '最新'){
             if($sex == '全部'){
-                $allmessage = M('image')->order('time')->select();
+                $where = [
+                    'is_pass' => 1,
+                ];
+                $allmessage = M('image')->where('$where')->order('time')->select();
                 krsort($allmessage);
                 $message = array_slice($allmessage, $time * 6, 6);
 
@@ -69,6 +72,7 @@ class IndexController extends Controller {
                 $this->ajaxReturn($message, 'json');
             }else if($sex == '汉子'){
                 $where = [
+                    'is_pass' => 1,
                     'sex' => '男',
                 ];
                 $allmessage = M('image')->where($where)->order('time')->select();
@@ -77,6 +81,7 @@ class IndexController extends Controller {
                 $this->ajaxReturn($message, 'json');
             }else if($sex == '妹子'){
                 $where = [
+                    'is_pass' => 1,
                     'sex' => '女',
                 ];
                 $allmessage = M('image')->where($where)->order('time')->select();
@@ -92,6 +97,7 @@ class IndexController extends Controller {
                 $this->ajaxReturn($message, 'json');
             }else if($sex == '汉子'){
                 $where = [
+                    'is_pass' => 1,
                     'sex' => '男',
                 ];
                 $allmessage = M('image')->where($where)->order('vote')->select();
@@ -100,6 +106,7 @@ class IndexController extends Controller {
                 $this->ajaxReturn($message, 'json');
             }else if($sex == '妹子'){
                 $where = [
+                    'is_pass' => 1,
                     'sex' => '女',
                 ];
                 $allmessage = M('image')->where($where)->order('vote')->select();
