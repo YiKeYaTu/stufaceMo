@@ -83,11 +83,11 @@ $(function () {
 			if(res){
 				formData.append("uid",res["uid"]);
 				formData.append("sex",res["sex"]);
-				formData.append("post.form",res["post.form"]);
+				formData.append("form",res["form"]);
 				xhr = new XMLHttpRequest();  
 				xhr.open( "POST", "http://hongyan.cqupt.edu.cn/stuface/?m=Home&c=Index&a=uploadpic" ,true); 
 				xhr.onload = function(res) {  
-					console.log(res);
+					console.log(res.currentTarget.response);
 					if (xhr.status == 200) { //上传图片功能 这里我向你发送文件后 你需要判断是否上传成功 返回true或者false
 						if(res.currentTarget.response == "true"){
 							alert("上传成功,请等待管理员审核");
