@@ -1,0 +1,632 @@
+body,
+div,
+p,
+span,
+button,
+img,
+select,
+option,
+a,
+ul,
+li {
+	margin: 0px;
+	padding: 0px;
+}
+a {
+	text-decoration: none;
+}
+body {
+	font-family: "Microsoft YaHei";
+}
+#container {
+	width: 100%;
+	background-image: url("../img/bg.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center 0;
+    position: relative;
+}
+//上传照片按钮
+#uploading {
+	background-image: url("../img/上传按钮.png");
+}
+//导航栏
+.top-container {
+	height: 68px;
+	width: 100%;
+	margin: 0 auto;
+	background-color: rgb(255, 255, 255);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 10000;
+	display: block;
+}
+.top {
+	width: 960px;
+	margin: 0 auto;
+	
+	img {
+		margin-top: 9px;
+		float: left;
+	}
+}
+.nav {
+		font-size: 22px;
+		line-height: 68px;
+		float: right;
+		cursor: pointer;
+		li {
+			
+			margin-left: 50px;
+			list-style-type: none;
+			float: left;
+			a{
+				color: #666666;
+			}
+		}
+		.show-submit-box {
+			a {
+				color:#fa9e27;
+			}
+		}
+	}
+.content {
+	width: 1018px;
+	position: relative;
+	border-top: 1px solid white;
+	margin: 0 auto;
+	img[src="img/rocket.png"]{
+		position: absolute;
+		margin: 118px 0 0 -160px;
+	}
+}
+#uploading {
+	width: 320px;
+	height: 127px;
+	background-image: url("../img/uploading.png");
+	background-repeat: no-repeat;
+	margin-left: 352px;
+	margin-top: 570px;
+	cursor: pointer;
+	position: relative;
+	img[src="img/stone.png"] {
+		position: absolute;
+		left: -61px;
+		bottom: -7px;
+	}
+}
+.activity-detail{
+
+	>img {
+		margin-top: 42px;
+	}
+	>div {
+		background-color: #ffffff;
+		height: 362px;
+		width: 100%;
+		margin-top: 5px;
+	}
+}
+.activity-content{
+	.cqupt-helper {
+		width: 280px;
+		height: 100%;
+		float: left;
+		img {
+			margin-top: 41px;
+			margin-left: 0;
+			float: right;
+		}
+	}
+	.about-activity{
+		margin-top: 27px;
+		margin-left: 20px;
+		float: left;
+		p {
+			margin: 0px;
+			padding: 0px;
+			color: #656565;
+			font-size: 15px;
+			margin-top: 15px;
+		}
+		.about-people{
+			margin-top: 12px;
+		}
+		.activity-time{
+			margin-top: 0;
+			font-size: 18px;
+			color: #333333;
+		}
+		.activity-detime{
+			color: #f1705d;
+		}
+		.activity-people{
+			font-size: 18px;
+			color: #333333;
+		}
+		.student-2015{
+			color: #f1705d;
+		}
+		.activity-way{
+			margin-top: 26px;
+			font-size: 18px;
+			color: #333333;
+		}
+		.first-way{
+			margin-top: 12px;
+		}
+		
+		.career-talk{
+			margin-top: 25px;
+			font-size: 18px;
+			color: #f2715c;
+		}
+		.career-show {
+			margin-top: 10px;
+			font-size: 18px;
+			color: #343434;
+		}
+	}
+}
+.smile-face{
+	width: 100%;
+	>img {
+		margin-top: 122px;
+	}
+	>div {
+		width: 100%;
+		height: 991px;
+		margin-top: 13px;
+		background-color: #ffffff;
+	}
+}
+.select-condition {
+	width: 100%;
+	height: 82px;
+	.select-inf{
+		width: 156px;
+		height: 42px;
+		position: relative;
+		float: left;
+		margin: 40px 18px 0 0;
+		color: #ffffff;
+		line-height: 42px;
+		font-size: 20px;		
+		.option{
+			position: absolute;
+			top: 0;
+			width: 156px;
+			height: 42px;
+			padding-left: 8px;
+			background: #feca64;
+			z-index: 1;
+			transition: all 0.4s;
+			-moz-transition: all 0.4s;	/* Firefox 4 */
+			-webkit-transition: all 0.4s;	/* Safari 和 Chrome */
+			-o-transition: all 0.4s;
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		}
+		.option:hover{
+			background: #f5ba20;
+		}
+		.frist:hover{
+			background: url("../img/select.png");
+		}
+		.frist{
+			z-index: 1000;
+			top: 0;
+			background: url("../img/select.png");
+		}
+	}
+	.select-left{
+		margin-left: 43px;
+	}
+}
+.condition-left {
+	float: left;
+	select {
+		width: 164px;
+		margin-top: 38px;
+		margin-left: 44px;
+		height: 42px;
+		line-height: 34px;
+		display: inline-block;
+		font-size:20px;
+		color: #ffeed4;
+		background-color: #feca64;
+		border: 1px solid transparent;
+		option {
+			display: block;
+			font-size: 20px;
+			height: 45px;
+			// width: 145px;
+			margin-left: 45px;
+			display: block;
+
+		}
+
+	}
+	.second-way{
+			margin-left: 19px;
+		}
+}
+.condition-right {
+	float: right;
+	input {
+		height: 42px;
+		width: 189px;
+		margin-top: 36px;
+		margin-right: 16px;
+		padding-left: 13px;
+		float: left;
+		border: 1px solid transparent;
+		font-size: 20px;
+		background-color: #e0e0e0;
+	}
+	.search {
+		margin-top: 37px;
+		margin-right: 40px;
+		float: left;
+	}
+}
+.smile-face-photo{
+	width: 100%;
+	height: 824px;
+}
+.one-row {
+	width: 932px;
+	margin:0 auto;
+	
+	
+	>div {
+		width: 211px;
+		height: 245px;
+		margin-top: 30px;
+		margin-left: 29px;
+		float: left;
+		position: relative;
+		background-color: #fdeec7;
+		.ranking {
+			color: #fff7ee;
+			width: 48px;
+			height: 24px;
+			line-height: 24px;
+			text-align: center;
+			top: 14px;
+			left:-2px;
+			position: absolute;
+			background-image: url("../img/ranking.png")
+			
+		}
+		.love-nolove{
+			margin-top: 15px;
+			margin-left: 8px;
+			margin-bottom:-3px;
+			vertical-align:top;
+			float: left;
+		}
+		.love-people {
+			color: #ef644f;
+			margin-top: 14px;
+			margin-left: 2px;
+			float: left;
+		}
+		.detail{
+			margin-top: 7px;
+			margin-right: 10px;
+			float: right;
+			cursor: pointer;
+
+		}
+	}
+	.no-margin {
+		margin-left: 0;
+	}
+}
+.person-img{
+	width: 190px;
+	height: 190px;
+	padding: 12px;
+	padding-bottom: 0;
+	cursor: pointer;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+//翻页
+.page {
+	width: 325px;
+	margin: 0 auto;
+	margin-top: 30px;
+	li {
+		width: 30px;
+		height: 30px;
+		margin-left: 13px;
+		line-height: 30px;
+		border-radius: 6px;
+		text-align: center;
+		color: #ffffff;
+		cursor: pointer; 
+		background-color: #dad8d7;
+		float: left;
+		list-style-type: none;
+	}
+	.cur-li{
+		background-color:#f17b68; 
+	}
+}
+//回到顶部
+.toTop {
+	right: 40px;
+	bottom: 40px;
+	position: fixed;
+	cursor: pointer;
+}
+//声明信息
+.foot {
+	height: 95px;
+	margin-top: 77px;
+	text-align: center;
+	color: #c8a058;
+	font-size: 14px;
+	p {
+		margin-top: 7px;
+	}
+	a {
+		color: #c8a058;
+	}
+}
+//空白背景框
+.submit-boxing{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #000;
+	opacity: 0.2;
+	filter:alpha(opacity=20);
+	z-index: 111111;
+	display: none;
+	position: absolute;
+	
+}
+//登陆框
+.submit-box {
+	width: 452px;
+	height: 283px;
+	text-align: center;
+	top: -283px;
+	left: 50%;
+	border-radius: 6px;
+	margin-left: -452/2px;
+	margin-top: -283/2px;
+	z-index: 111112;
+	position: fixed;
+	background-image: url("../img/submitbox.png");
+	transition: all 0.4s;
+	-moz-transition: all 0.4s;	/* Firefox 4 */
+	-webkit-transition: all 0.4s;	/* Safari 和 Chrome */
+	-o-transition: all 0.4s;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	.name {
+		width: 231px;
+		height: 42px;
+		margin-top: 63px;
+		padding-left: 48px;
+		border-radius: 6px;
+		background-color: #ffffff;
+		position: relative;
+		font-size: 14px;
+	}
+	.usrname {
+		left: 98px;
+		top: 77px;
+		position: absolute;
+	}
+	.name-dividing {
+		left: 130px;
+		top:78px;
+		position: absolute;
+	}
+	.password {
+		width: 231px;
+		height: 42px;
+		margin-top: 15px;
+		padding-left: 48px;
+		border-radius: 6px;
+		font-size: 14px;
+	}
+	.usrpwd {
+		left: 98px;
+		top: 140px;
+		position: absolute;
+	}
+	.pwd-dividing {
+		left: 130px;
+		top:142px;
+		position: absolute;
+	}
+	.submit {
+		display: block;
+		text-decoration: none;
+		width: 279px;
+		height: 42px;
+		margin: 0 auto;
+		margin-top: 31px;
+		line-height: 42px;
+		color: #fff7f5;
+		font-size: 20px;
+		background-image: url("../img/登录按钮.png");
+		background-repeat: no-repeat;
+	}
+}
+//上传
+.uploading-box {
+	width: 332px;
+	height: 485px;
+	left: 50%;
+	margin-left: -332/2px;
+	top: 50%;
+	margin-top: -485/2px;
+	background-color: #ffffff;
+	text-align: center;
+	position: fixed;
+	display: none;
+	z-index: 111112;
+	.uploading-pic-box{
+		width: 306px;
+		height: 306px;
+		margin:12px;
+		margin-bottom: 28px;
+		border: 1px dashed #bfbfbf;
+		input {
+			display: none;
+		}
+		img {
+			margin-top: 112px;
+			cursor: pointer;
+		}
+	}
+	>span {
+		color: #666666;
+		font-size:18px;
+		margin-left: 12px;
+		float: left;
+		line-height: 30px;
+	}
+	input {
+		width:196px;
+		height: 26px;
+		border: 1px solid transparent;
+		background-color: #ebebeb;
+		float: left;
+	}
+	>p{
+		color: #999999;
+		font-size:14px;
+		margin-top: 10px;
+		margin-left: 12px;
+		float: left;
+	}
+	.important {
+		color: #ed735d;
+		margin-top: 5px;
+		margin-left: 11px;
+	}
+	>a {
+		color: #f8f8f8;
+		font-size: 22px;
+		width: 130px;
+		height: 39px;
+		line-height: 39px;
+		margin-top: 24px;
+		margin-left: 101px;
+		float: left;
+		cursor: pointer;
+		display: block;
+		background-image: url("../img/pre-publish.png");
+		background-repeat:no-repeat;
+	}
+}
+//上传成功
+.uploading-success-box{
+	width: 332px;
+	height: 485px;
+	left: 50%;
+	margin-left: -332/2px;
+	top: 50%;
+	margin-top: -485/2px;
+	background-color: #ffffff;
+	text-align: center;
+	position: fixed;
+	display: none;
+	z-index: 1000;
+	.success-icon{
+		margin-top: 34px;
+	}
+	p{
+		margin-left: 16px;
+		margin-top: 23px;
+		font-size: 18px;
+	}
+	.cqupt-helper{
+		width: 209px;
+		height: 209px;
+		margin-top: 28px;
+	+img {
+		margin-top: 40px;
+		cursor: pointer;
+	}
+	}
+
+}
+
+//查看详情
+.detail-box {
+	width: 529px;
+	height: 610px;
+	position: fixed;
+	z-index: 111112;
+	right: -529px;
+	margin-right: -529/2px;
+	top: -610px;
+	margin-top: -610/2px;
+	background-color: #ffffff;
+	transition: all 0.4s;
+	-moz-transition: all 0.4s;	/* Firefox 4 */
+	-webkit-transition: all 0.4s;	/* Safari 和 Chrome */
+	-o-transition: all 0.4s;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	.ranking{
+		color: #fff7ee;
+		width: 48px;
+		height: 24px;
+		line-height: 24px;
+		text-align: center;
+		top: 14px;
+		left:-2px;
+		position: absolute;
+		background-image: url("../img/ranking.png")
+	}
+	.person-img{
+		width: 497px;
+		height: 497px;
+		margin: 4px;
+	}
+	.smile-id{
+		color: #ffc349;
+		font-size: 22px;
+		float: left;
+		margin-left: 16px;
+		margin-top: 42px;
+	}
+	.love {
+		float: right;
+		margin-right: 16px;
+		margin-top: 40px;
+		img {
+			width: 27px;
+			height: 27px;
+			float: left;
+		}
+		.love-people {
+			color: #ec654b;
+			font-size: 25px;
+			float: right;
+		}
+	}
+
+}
+
+

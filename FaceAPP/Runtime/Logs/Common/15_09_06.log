@@ -1,0 +1,24 @@
+[ 2015-09-06T16:07:14+08:00 ] ::1 /stuface/Public/jquery/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000407s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005572s ]
+ERR: 无法加载模块:Public
+
+[ 2015-09-06T16:07:16+08:00 ] ::1 /stuface/Public/jquery/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000312s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020136s ]
+ERR: 无法加载模块:Public
+
+[ 2015-09-06T16:07:16+08:00 ] ::1 /stuface/Public/jquery/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000183s ]
+INFO: [ app_init ] --END-- [ RunTime:0.030057s ]
+ERR: 无法加载模块:Public
+
+[ 2015-09-06T16:07:34+08:00 ] ::1 /stuface/Public/jquery/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000096s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001820s ]
+ERR: 无法加载模块:Public
+

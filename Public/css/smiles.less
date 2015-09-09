@@ -1,0 +1,138 @@
+.px2px(@name, @px){ 
+    @{name}: round(@px / 2) * 1px; 
+    [data-dpr="2"] & { 
+        @{name}: @px * 1px; 
+    } 
+    // for mx3 
+    [data-dpr="2.5"] & { 
+        @{name}: round(@px * 2.5 / 2) * 1px; 
+    } 
+    // for 小米note 
+    [data-dpr="2.75"] & { 
+        @{name}: round(@px * 2.75 / 2) * 1px; 
+    } 
+    [data-dpr="3"] & { 
+        @{name}: round(@px / 2 * 3) * 1px 
+    } 
+    // for 三星note4 
+    [data-dpr="4"] & { 
+        @{name}: @px * 2px; 
+    } 
+}
+html ,body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    background-size: cover;
+    overflow: hidden;
+}
+.photo {
+    position: relative;
+    width: 656/72rem;
+    height: 800/72rem;
+    margin: 0 auto;
+    margin-top: 2.03%;
+    background: #fdefc2;
+    .container {
+        width: 596/72rem;
+        margin: 0 auto;
+        font-size: 0;
+        span.zan, span.ranked {
+            display: inline-block;
+            width: 288/72rem;
+            height: 122/72rem;
+            background: #f9dfa2;
+            margin-top: 33/72rem;
+        }
+        .zan {
+
+            float: left;
+            border: 1px solid #efebec;
+        }
+        .ranked {
+            float: right;
+            border: 1px solid #efebec;
+        }
+        .zan-num {
+            width: 300/72rem;
+            margin: 0 auto;
+            line-height: 1.2rem;
+            margin-top: 20/72rem;
+            .px2px(font-size,30);
+            text-align: center;
+        }
+        .tic-num {
+            width: 300/72rem;
+            text-align: center;
+            margin-top: 20/72rem;
+            line-height: 1.2rem;
+            .px2px(font-size,30);
+        }
+        .zan-pic {
+            color: #a48a59;
+        }
+        .num {
+            color: #ec7358;
+        }
+        .num1 {
+            color: #ec7358;
+        }
+        .update-time {
+            margin-top: 10/72rem;
+            .px2px(font-size,24);
+            color: #9d8f72;
+            text-align: center;
+        }
+    }
+    .show-pic {
+        width: 596/72rem;
+        height: 592/72rem;
+        margin-top: 31/72rem;
+        border: 1px solid #fdf1db;
+    }
+    .ranking {
+        position: absolute;
+        top: 5%;
+        left: -9/72rem;
+        display: inline-block;
+        .px2px(width,196);
+        .px2px(height,80);
+        .px2px(font-size,45);
+        .px2px(line-height,73);
+        color: #fff;
+        text-align: center;
+        background: url(../images/ranking1.png) 50% 50% no-repeat;
+        background-size: 100% 100%;
+    }
+}
+.vote {
+    display: block;
+    width: 656/72rem;
+    height: 91/72rem;
+    margin: 0 auto;
+    margin-bottom: 60/72rem;
+    margin-top: 66/72rem;
+    .px2px(font-size,35);
+    line-height: 91/72rem;
+    color: #fff;
+    text-align: center;
+    background: #fb9d43;
+    border: 1px solid #ececec;
+}
+@font-face {font-family: 'iconfont';
+    src: url('iconfont/iconfont.eot'); /* IE9*/
+    src: url('iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont1{
+    color: #ec654b;
+    .px2px(font-size,40)!important;
+    font-family:"iconfont" !important;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}

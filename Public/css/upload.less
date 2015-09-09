@@ -1,0 +1,197 @@
+.px2px(@name, @px){ 
+    @{name}: round(@px / 2) * 1px; 
+    [data-dpr="2"] & { 
+        @{name}: @px * 1px; 
+    } 
+    // for mx3 
+    [data-dpr="2.5"] & { 
+        @{name}: round(@px * 2.5 / 2) * 1px; 
+    } 
+    // for 小米note 
+    [data-dpr="2.75"] & { 
+        @{name}: round(@px * 2.75 / 2) * 1px; 
+    } 
+    [data-dpr="3"] & { 
+        @{name}: round(@px / 2 * 3) * 1px 
+    } 
+    // for 三星note4 
+    [data-dpr="4"] & { 
+        @{name}: @px * 2px; 
+    } 
+}
+html , body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    overflow: hidden;
+}
+.photo {
+    width: 656/72rem;
+    margin: 0 auto;
+    .container {
+        position: relative;
+        width: 656/72rem;
+        height: 656/72rem;
+        margin-top: 21/72rem;
+        background: #fdefc2;
+        background-size: 100% 100%;
+        border: 1px solid #c39220;
+        .upload-img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 29.6%;
+            height: 24.7%;
+            .px2px(font-size,40);
+            color: #bfbfbf;
+            text-align: center;
+        }
+        p {
+            text-align: center;
+            margin: 0 0;
+        }
+        p.add-img {
+            margin-top: 43.2/72rem;
+        }
+        .plus-img {
+            width: 1rem;
+            height: 1rem;
+        }
+        .show-pic {
+            // display: block;
+            display: none;
+            width: 633/72rem;
+            height: 633/72rem;
+            margin: 0 auto;
+            margin-top: 13/72rem;
+        }
+    }
+    .vote {
+        box-sizing: border-box;
+        width: 100%;
+        height: 80/72rem;
+        margin-top: 46/72rem;
+        padding-left: 12/72rem;
+        .px2px(font-size,30);
+        line-height: 80/72rem;
+        color: #999074;
+        background: #fdefc2;
+        border: 1px solid #faf4e0;
+    }
+    .tips {
+        .px2px(font-size,22);
+        color: #9f8445;
+        margin: 18/72rem 0 0 0;
+    }
+    .upload {
+        width: 100%;
+        height: 94/72rem;
+        margin-top: 65/72rem;
+        .px2px(font-size,40);
+        color: #fff;
+        line-height: 94/72rem;
+        // background: #f8a04b;
+        background: #c3c3c3;
+        border: 1px solid #faf4e0;
+    }
+}
+.cover {
+    // display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.6;
+    display: none;
+}
+.upload-info1 {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 588/72rem;
+    height: 266/72rem;
+    margin: auto;
+    background: #fdd272;
+    p {
+        margin: 66/72rem 0 0 0;
+        .px2px(font-size,40);
+        color: #7a6533;
+        text-align: center;
+    }
+    input {
+        display: block;
+        width: 553/72rem;
+        height: 94/72rem;
+        margin: 0 auto;
+        margin-top: 33/72rem;
+        .px2px(font-size,40);
+        color: #fff;
+        background: #f8a04b;
+        border: none;
+    }
+    img {
+        position: absolute;
+        top: -13/72rem;
+        right: -9/72rem;
+        width: 50/72rem;
+        height: 50/72rem;
+    }
+}
+.upload-info2 {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 588/72rem;
+    height: 266/72rem;
+    margin: auto;
+    background: #fdd272;
+    .success {
+        width: 290/72rem;
+        .px2px(line-height,45);
+        .px2px(font-size,45);
+        color: #7a6533;
+        margin: 0 auto;
+        margin-top: 95/72rem;
+    }
+    .delay-time {
+        text-align: center;
+        .px2px(line-height,28);
+        .px2px(font-size,28);
+    }
+    .close {
+        position: absolute;
+        top: -13/72rem;
+        right: -9/72rem;
+    }
+}
+.upload-info3 {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 588/72rem;
+    height: 266/72rem;
+    margin: auto;
+    background: #fdd272;
+    p {
+        .px2px(font-size,40);
+        color: #7a6533;
+        text-align: center;
+        line-height: 200/72rem;
+    }
+}
+

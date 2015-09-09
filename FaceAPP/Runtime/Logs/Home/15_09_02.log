@@ -1,0 +1,27 @@
+[ 2015-09-02T14:32:33+08:00 ] ::1 /stuface/Home/iamge
+ERR: 无法加载控制器:Iamge
+
+[ 2015-09-02T14:32:38+08:00 ] ::1 /stuface/Home/login
+ERR: 无法加载控制器:Login
+
+[ 2015-09-02T14:45:48+08:00 ] ::1 /stuface/Home/Index/login
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-09-02T16:04:59+08:00 ] ::1 /stuface/Home/Myimage/index
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'pic' cannot be null
+
+[ 2015-09-02T19:59:37+08:00 ] ::1 /stuface/index.php?m=Home&c=Index&a=login
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+[ 2015-09-02T20:39:31+08:00 ] ::1 /stuface/index.php?m=Home&c=Index&a=login
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION smileface.I does not exist
+
+[ 2015-09-02T20:40:06+08:00 ] ::1 /stuface/index.php?m=Home&c=Index&a=login
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION smileface.I does not exist
+
+[ 2015-09-02T20:40:22+08:00 ] ::1 /stuface/index.php?m=Home&c=Index&a=login
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION smileface.I does not exist
+
+[ 2015-09-02T21:13:55+08:00 ] ::1 /stuface/Home/index/test
+ERR: Think\Controller:returnAjax方法不存在！
+

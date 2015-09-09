@@ -1,0 +1,15 @@
+[ 2015-09-04T22:01:47+08:00 ] ::1 /stuface/Admin/index
+ERR: 无法加载控制器:Index
+
+[ 2015-09-04T22:02:17+08:00 ] ::1 /stuface/Admin/index
+ERR: Think\Model:getpic方法不存在！
+
+[ 2015-09-04T22:21:16+08:00 ] ::1 /stuface/ADMIN/index
+ERR: 无法加载控制器:Index
+
+[ 2015-09-04T22:23:48+08:00 ] ::1 /stuface/Admin/local?uid=111111&submit=%E9%80%9A%E8%BF%87
+ERR: 无法加载控制器:Local
+
+[ 2015-09-04T22:24:02+08:00 ] ::1 /stuface/Admin/local?uid=111111&submit=%E9%80%9A%E8%BF%87
+ERR: 无法加载控制器:Local
+

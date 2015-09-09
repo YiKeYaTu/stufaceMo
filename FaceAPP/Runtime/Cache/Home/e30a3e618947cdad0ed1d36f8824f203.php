@@ -1,0 +1,270 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新生笑脸网</title>
+	<link rel="stylesheet" href="/stufaceMo/Public/css/normalize.css">
+	<link rel="stylesheet" href="/stufaceMo/Public/css/index.css">
+	<script src="/stufaceMo/Public/js/flexible.js"></script>
+	<script src="/stufaceMo/Public/js/zepto.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="part-first">
+			<div class="upload">
+    			<a href="<?php echo U('Upload/index');?>"><img src="/stufaceMo/Public/images/upload.png" alt="请点此上传照片"></a>
+    		</div>
+		</div>
+		<div class="part-second">
+			<div class="act-info">
+				<img class="actinfo" src="/stufaceMo/Public/images/actinfo.png" alt="活动详情">
+				<div class="word-info">
+					<p class="title">活动时间:</p>
+					<p class="splicit-info">本次线上参与活动时间为<span class="real-time">9月8日8:00-9月16日12:00</span></p>
+					<p class="title"><span class="act-obj">活动对象: </span><span class="real-obj">2015级</span><span class="fresh-stu">所有小鲜肉</span></p>
+					<p class="title">参与方式:</p>
+					<p class="splicit-info"><span class="mtd1">方式一：</span>上传自己的“笑脸”照片（每人限一张)参与活动</p>
+					<p class="splicit-info"><span class="mtd1">方式二：</span>9月9日至10日在雨红莲操场和风雨操场参</p>
+					<p class="splicit-info">与拍照活动</p>
+					<p class="title host">红岩网校工作站招新宣讲会</p>
+					<p class="splicit-info1">9月19日晚上19：00   将会展示最美笑脸</p>
+					<img class="person" src="/stufaceMo/Public/images/person.png" alt="人物">
+				</div>				
+			</div>
+		</div>
+		<div class="part-third">
+			<div class="smile-show">
+				<img class="smileshow" src="/stufaceMo/Public/images/smileshow.png" alt="笑脸展示">
+				<div class="smileimgs">
+					<div class="show-first">
+						<input class="fill-id" type="text" placeholder="输入笑脸编号"><input class="search" type="button" value="搜索">
+						<ul><a class="second-line clicked-ul" id="b1" href="javascript:void(0);">综合<i class="iconfont">&#xe60a;</i></a>
+							<div class="li-container" id="c1">
+								<li><a class="second-line" href="#">综合</a></li>
+							    <li><a class="first-line" href="#">人气</a></li>
+    							<li><a class="second-line" href="#">最新</a></li>
+							</div>
+						</ul>
+						<ul><a class="second-line clicked-ul" id="b2" href="javascript:void(0);">全部<i class="iconfont">&#xe60a;</i></a>
+							<div class="li-container" id="c2" >
+							    <li><a class="second-line" href="#">全部</a></li>
+    							<li><a class="first-line" href="#">妹子</a></li>
+    							<li><a class="second-line" href="#">汉子</a></li>
+							</div>	
+						</ul>
+					</div>
+					<div class="test">
+						<div id="wrapper">
+						<div class="package">
+							<div class="show-second">
+        						
+    					    </div>
+						</div>			
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="loading">
+			<div class="loading-content">
+				<span class="uers-tell">
+					点击刷新
+				</span>
+				
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function () {
+			var con = $(".container")[0],
+				el_outer = $(".show-second"),
+				fragment_outer = $("<div></div>").addClass("real-show"),
+				package_outer = $(".show-second"),
+				loading = $(".loading"),
+				loading_content = $(".loading-content"),
+				obj = {
+					"id":"1",
+					"pic":"55e6af2907944.jpg",
+					"uid":"2014211",
+					"vote":"0000000001",
+					"time":"2015-09-01 20:02:48",
+					"sex":null,
+					"phone":null
+				},
+				fragment,
+				temp,
+				check = false,
+				height = 0,
+				i,
+				oldY = 0,
+				newY,
+				len,
+				key,
+				start = 0,
+				oldP = 0,
+				newP = 0,
+				check_top = false,
+				check_lodingData = true,
+				nor_height = loading.height(),
+				scrollT,
+				paiming = 0,
+				text = $(".fill-id"),
+				str1 = "综合",
+				str2 = "全部",
+				url_l = "index.php?m=Home&c=smile&a=index";
+			loadingData1();
+			for(i = 0;i < con.children.length;i++){
+				height += con.children[i].offsetHeight;
+			}
+			loading.css('top',height - loading.height() + 1);
+			document.addEventListener("touchstart",function (e) {	
+				check = true;
+				oldP = oldY = e.touches[0].pageY;				
+			})
+			document.addEventListener("touchmove",function (e) {
+				if(check&&con.scrollTop + con.offsetHeight + 1 >= height){
+					scrollT = con.scrollTop;
+					newP = newY = e.touches[0].pageY;
+					if(newY - oldY < -20){
+						oldY = newY + 20;
+					}
+					e.preventDefault();
+					con.scrollTop -= newY - oldY;
+					if(newY - oldY < 0){
+						loading.css('height',loading.height() + 10 + "px");		
+						if(newP - oldP < -300){
+							check_lodingData = true;
+							loading_content.html('<span class="uers-tell">松手刷新.....</span>');
+						}else{
+							loading_content.html('<span class="uers-tell">点击刷新</span>');
+						}
+					}else{
+						check_lodingData = false;
+						loading.css('height',loading.height() - 10 + "px");
+					}
+					oldY = newY;
+					check_top = true;
+				}
+			})
+			document.addEventListener("touchend",function (e) {
+				loading_start();
+			})
+			loading[0].addEventListener("touchend",function (e) {
+				check_lodingData = true;
+				check_top = true;
+				loading_start();
+			})
+			function loadingData1() {
+				$.post("<?php echo U('Index/showpic');?>","time=" + start++ + "&sex=" + str2 + "&group=" + str1,function (res) {
+					res = JSON.parse(res);
+					console.log(res);
+					loading_content.html('<span class="uers-tell">点击刷新</span>');
+					if(check_lodingData){
+						for(i = 0,len = res.length;i < len;i++){
+							for(key in res[i]){
+								obj[key] = res[i][key];
+							}
+							fragment = '<div class="real-show"><span class="ranking">NO.'+ ++paiming +'</span><img class="real-pic" src="' + obj.pic + '"><p class="word-info"><span class="zan"><i uid=' + obj.uid  + ' class="iconfont1"></i></span><span class="zan-num">' + parseInt(obj.vote) + '</span><span class="more-info"> <a class="more-info" href="' + url_l +  "&uid=" + obj.uid + '"><img src="/stufaceMo/Public/images/moreinfo.png"></a></span></p></div>';
+							temp = fragment;
+							package_outer.append(fragment);
+							fragment = temp;
+							loadingData = false;
+							
+						}
+						height = 0;
+						for(i = 0;i < con.children.length;i++){
+							height += con.children[i].offsetHeight;
+						}
+						loading.css('top',height - nor_height + 1);
+						check_lodingData = false;
+					}
+				})
+			}
+			function loading_start() {
+				check = false;
+				if(!check_top){
+					return;
+				}
+				check_top = false;
+				loading.css('height',nor_height + "px");
+				loadingData1();
+				
+			}
+			package_outer[0].addEventListener("touchend",function (e) {
+				var target = e.target;
+				if(target.className == "iconfont1"){
+					$.post("<?php echo U('Smile/vote');?>","uid=" + target.getAttribute("uid"),function (res) {
+						console.log(res);
+						res = JSON.parse(res);
+						if(res){
+							target.parentNode.nextSibling.innerHTML = res.vote;
+						}else{
+							alert("你今天已经给这个笑脸投过票了");
+						}
+					})
+				}
+			})
+			var firstUl = $('.clicked-ul').eq(0),
+			    secondUl = $('.clicked-ul').eq(1),
+			    first = $("#b1"),
+			    second = $("#b2");
+			//下拉菜单
+			$(firstUl).bind("touchend",function () {
+				if ($(this).hasClass('second-line')) {
+					$(this).removeClass('second-line');
+				};
+				$(this).addClass('first-line');
+				if (!$(secondUl).hasClass('second-line')) $(secondUl).addClass('second-line');
+			});
+			$(secondUl).bind("touchend",function () {
+				if ($(this).hasClass('second-line')) {
+					$(this).removeClass('second-line');
+				};
+				$(this).addClass('first-line');
+				if (!$(firstUl).hasClass('second-line')) $(firstUl).addClass('second-line');
+			});
+			$(".part-first").css({
+				"background":"url(Public/images/bodybg1.png) 50% 0 no-repeat",
+				"background-size":"100% 100%"
+			});
+			$("#c1").bind("click",function (e) {
+				start = 0;
+				paiming = 0;
+				var target = e.target;
+				if(target.nodeName = "A"&&!target.id){
+					first.text($(target).html());
+					str1 = first.text();
+					package_outer.html("");
+					check_lodingData = true;
+					check_top = true;
+					loadingData1();
+				}
+			})
+			$("#c2").bind("click",function (e) {
+				start = 0;
+				paiming = 0;
+				var target = e.target;
+				if(target.nodeName = "A"&&!target.id){
+					second.text($(target).html());
+					str2 = second.text();
+					package_outer.html("");
+					check_lodingData = true;
+					check_top = true;
+					loading_start();
+					loadingData1();
+				}
+			})
+			$(".search").click(function () {
+				var value = text.val();
+				$.get("","uid=" + value,function (res) {
+					if(res){
+						window.location = "index.php?m=Home&c=smile&a=index&uid=" + value;
+					}else{
+						alert("没有这个笑脸哦");
+					}
+				})
+			})
+		})
+	</script>
+</body>
+</html>
