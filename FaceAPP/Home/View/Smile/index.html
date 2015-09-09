@@ -37,6 +37,7 @@
 				"background":"url(Public/images/bodybg3.png) 50% 0 fixed no-repeat",
 				"background-size":"100% 100%"
 			});
+			alert(1);
 			$(".vote").bind("touchend",function () {
 
 				$.post("<{:U('Home/Smile/vote')}>",window.location.search.split("&")[window.location.search.split("&").length - 1],function (res) {
