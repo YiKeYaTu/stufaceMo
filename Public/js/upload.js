@@ -10,7 +10,7 @@ $(function () {
 		file = $(p_form[0].children[0]),
 		upload_img = $(".upload-img"),
 		uploading = $(".upload-info3"),
-		formData，
+		formData,
 		xhr;
 	//微信配置信息
 	// wx.config({
