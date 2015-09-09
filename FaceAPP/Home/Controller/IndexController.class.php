@@ -23,8 +23,8 @@ class IndexController extends Controller {
         $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/bindVerify";
         $res2 = $this->curl_api($url, $access);
         if($res1 && $res2){
-            $stuId = $res2->stuId;
-            $stuSex = $res1->sex;
+            $stuId = $res2['stuId'];
+            $stuSex = $res1['sex'];
             session('uid', $stuId);
             session('sex', $stuSex);
         }else{
