@@ -20,7 +20,7 @@
 				<img class="actinfo" src="__PUBLIC__/images/actinfo.png" alt="活动详情">
 				<div class="word-info">
 					<p class="title">活动时间:</p>
-					<p class="splicit-info">本次线上参与活动时间为<span class="real-time">9月8日8:00-9月11日12:00</span></p>
+					<p class="splicit-info">本次线上参与活动时间为<span class="real-time">9月8日8:00-9月11日00:00</span></p>
 					<p class="title"><span class="act-obj">活动对象: </span><span class="real-obj">2015级</span><span class="fresh-stu">所有小鲜肉</span></p>
 					<p class="title">参与方式:</p>
 					<p class="splicit-info"><span class="mtd1">方式一：</span>上传自己的“笑脸”照片（每人限一张)参与活动</p>
@@ -174,6 +174,9 @@
 						height = 0;
 						if(len == 0){
 							loading_content.html('<span class="uers-tell">没有更多了</span>');
+							setTimeout(function () {
+								loading_content.html('<span class="uers-tell">点击加载</span>');
+							},1000);
 						}
 						for(i = 0;i < con.children.length;i++){
 							height += con.children[i].offsetHeight;
