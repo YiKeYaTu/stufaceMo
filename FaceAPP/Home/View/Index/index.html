@@ -263,12 +263,12 @@
 			$(".search").click(function () {
 				var value = text.val();
 				$.post("<{:U('Smile/select')}>","uid=" + value,function (res) {
-					console.log(res);
-					// if(res){
-					// 	window.location = "index.php?m=Home&c=smile&a=index&uid=" + value;
-					// }else{
-					// 	alert("没有这个笑脸哦");
-					// }
+					res = JSON.parse(res);
+					if(res){
+						window.location = "index.php?m=Home&c=smile&a=index&uid=" + value;
+					}else{
+						alert("没有这个笑脸哦");
+					}
 				})
 			})
 		})
