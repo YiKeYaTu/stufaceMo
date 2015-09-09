@@ -63,7 +63,7 @@ class IndexController extends Controller {
                 $where = [
                     'is_pass' => 1,
                 ];
-                $allmessage = M('image')->where('$where')->order('time')->select();
+                $allmessage = M('image')->where($where)->order('time')->select();
                 krsort($allmessage);
                 $message = array_slice($allmessage, $time * 6, 6);
 
