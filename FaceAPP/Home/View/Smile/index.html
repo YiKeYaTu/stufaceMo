@@ -40,7 +40,7 @@
 			console.log(window.location.search.split("&")[window.location.search.split("&").length - 1]);
 			$(".vote").bind("touchend",function () {
 
-				$.post("index.php/Home/Smile/vote",window.location.search.split("&")[window.location.search.split("&").length - 1],function (res) {
+				$.post("index.php/Home/Smile/vote","uid=" + "2015213137",function (res) {
 					res = JSON.parse(res);
 					console.log(res);
 					if(res){
