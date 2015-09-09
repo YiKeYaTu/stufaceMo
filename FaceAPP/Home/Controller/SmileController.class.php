@@ -21,7 +21,7 @@ class SmileController extends Controller {
         $where = [
             'vote' => ['gt', $vote],
         ];
-        $top = M('image')->where($where)->count();
+        $top = M('image')->where($where)->count() + 1;
         $this->assign('message', $message);
         $this->assign('top', $top);
         $this->display();
