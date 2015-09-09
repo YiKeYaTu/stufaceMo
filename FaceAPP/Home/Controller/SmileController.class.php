@@ -20,7 +20,10 @@ class SmileController extends Controller {
     
     public function select(){
         $uid = I('post.uid');
-        if(M('image')->where("uid=$uid")->select()){
+        $where = [
+            'uid' => $uid,
+            ];
+        if(M('image')->where($where)->select()){
             $this->ajaxReturn(true);
         }else{
             $this->ajaxReturn(false);
