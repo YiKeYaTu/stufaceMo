@@ -22,7 +22,7 @@ class UploadController extends Controller {
                     'name' => 0,
                     'uid' => $uid,
                     'sex' => 0,
-                    'has_upload' => 1,
+                    'has_upload' => 0,
                     'vote_day' => 0,
                 ];
                 M('user')->add($add);
