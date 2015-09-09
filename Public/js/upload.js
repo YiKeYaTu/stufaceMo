@@ -89,7 +89,7 @@ $(function () {
 				xhr.onload = function(res) {  
 					console.log(res);
 					if (xhr.status == 200) { //上传图片功能 这里我向你发送文件后 你需要判断是否上传成功 返回true或者false
-						if(res){
+						if(res.currentTarget.response == "true"){
 							alert("上传成功,请等待管理员审核");
 							window.history.back(-1);
 						}else{
