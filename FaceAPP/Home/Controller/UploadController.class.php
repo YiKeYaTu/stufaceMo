@@ -10,7 +10,7 @@ class UploadController extends Controller {
     	$data = [
     		'uid' => session('uid'),
     		'sex' => session('sex'),
-    		'post.form' => 'mobile',
+    		'form' => 'mobile',
     	];
             $uid = session('uid');
             $sex = session('sex');
