@@ -87,7 +87,7 @@ $(function () {
 				xhr = new XMLHttpRequest();  
 				xhr.open( "POST", "http://hongyan.cqupt.edu.cn/stuface/?m=Home&c=Index&a=uploadpic" ,true); 
 				xhr.onload = function(res) {  
-					res = JSON.parse(res);
+					console.log(res);
 					if (xhr.status == 200) { //上传图片功能 这里我向你发送文件后 你需要判断是否上传成功 返回true或者false
 						if(res){
 							alert("上传成功");
