@@ -43,8 +43,7 @@ class SmileController extends Controller {
     }
 
     public function vote(){
-        $this->ajaxReturn(['a'=>0]);
-        $stuId = session('stuId');
+        $stuId = session('uid');
     	$picUid = I('post.uid');
     	if($picUid){
             $where = [
