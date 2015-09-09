@@ -14,7 +14,16 @@ class SmileController extends Controller {
         }
         $message = M('image')->where("uid=$picUid")->select();
         $message[0]['ID'] = $picId;
+        $where = [
+            'uid' => $picUid,
+        ];
+        $vote = M('image')->where($where)->getField('vote');
+        $where = [
+            'vote' => ['gt', $vote],
+        ];
+        $top = M('image')->where($where)->count();
         $this->assign('message', $message);
+        $this->assign('top', $top);
         $this->display();
     }
     
