@@ -271,7 +271,7 @@
 				$.post("<{:U('Smile/select')}>","id=" + value,function (res) {
 					res = JSON.parse(res);
 					if(res){
-						window.location = "index.php?m=Home&c=smile&a=index&uid=" + value;
+						window.location = "index.php?m=Home&c=smile&a=index&id=" + value;
 					}else{
 						alert("没有这个笑脸哦");
 					}
