@@ -29,7 +29,7 @@ class SmileController extends Controller {
             $where = [
                 'id' => $id,
             ];
-            if($message = M('image')->where($id)->select()){
+            if($message = M('image')->where($where)->select()){
                 $message[0]['ID'] = $id;
                 $vote = M('image')->where($where)->getField('vote');
                 $where = [
