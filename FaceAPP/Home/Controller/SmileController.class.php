@@ -2,31 +2,49 @@
 namespace Home\Controller;
 use Think\Controller;
 class SmileController extends Controller {
-   public function index(){
-        $picUid = I('uid');
-        $picId = '';
-        $all = M('image')->select();
-        for($i = 0; $i < count($all); $i++){
-            if($all[$i]['uid'] == $picUid){
-                $picId = $i + 1;
-                break;
+    public function index(){
+        if($picUid = I('uid')){
+            $picId = '';
+            $all = M('image')->select();
+            for($i = 0; $i < count($all); $i++){
+                if($all[$i]['uid'] == $picUid){
+                    $picId = $i + 1;
+                    break;
+                }
+            }
+            $message = M('image')->where("uid=$picUid")->select();
+            $message[0]['ID'] = $picId;
+            $where = [
+                'uid' => $picUid,
+            ];
+            $vote = M('image')->where($where)->getField('vote');
+            $where = [
+                'vote' => ['gt', $vote],
+            ];
+            $top = M('image')->where($where)->count() + 1;
+            $this->assign('message', $message);
+            $this->assign('top', $top);
+            $this->display();
+        }else if($id = I('id')){
+            $where = [
+                'id' => $id,
+            ];
+            if($message = M('image')->where($id)->select()){
+                $message[0]['ID'] = $id;
+                $vote = M('image')->where($where)->getField('vote');
+                $where = [
+                    'vote' => ['gt', $vote],
+                ];
+                $top = M('image')->where($where)->count() + 1;
+                $this->assign('message', $message);
+                $this->assign('top', $top);
+                $this->display();
+            }else{
+                $this->error('没有这张照片');
             }
         }
-        $message = M('image')->where("uid=$picUid")->select();
-        $message[0]['ID'] = $picId;
-        $where = [
-            'uid' => $picUid,
-        ];
-        $vote = M('image')->where($where)->getField('vote');
-        $where = [
-            'vote' => ['gt', $vote],
-        ];
-        $top = M('image')->where($where)->count() + 1;
-        $this->assign('message', $message);
-        $this->assign('top', $top);
-        $this->display();
     }
-    
+
     public function select(){
         $id = I('post.id');
         $where = [
