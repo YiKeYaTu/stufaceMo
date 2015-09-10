@@ -268,7 +268,7 @@
 			})
 			$(".search").click(function () {
 				var value = text.val();
-				$.post("<{:U('Smile/select')}>","uid=" + value,function (res) {
+				$.post("<{:U('Smile/select')}>","id=" + value,function (res) {
 					res = JSON.parse(res);
 					if(res){
 						window.location = "index.php?m=Home&c=smile&a=index&uid=" + value;
