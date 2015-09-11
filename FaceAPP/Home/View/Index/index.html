@@ -117,36 +117,36 @@
 			}
 			loading.css('top',height - loading.height() + 1);
 			document.addEventListener("touchstart",function (e) {	
-				check = true;
-				oldP = oldY = e.touches[0].pageY;				
+				// check = true;
+				// oldP = oldY = e.touches[0].pageY;				
 			})
 			document.addEventListener("touchmove",function (e) {
-				if(check&&con.scrollTop + con.offsetHeight + 1 >= height){
-					scrollT = con.scrollTop;
-					newP = newY = e.touches[0].pageY;
-					if(newY - oldY < -20){
-						oldY = newY + 20;
-					}
-					e.preventDefault();
-					con.scrollTop -= newY - oldY;
-					if(newY - oldY < 0){
-						loading.css('height',loading.height() + 10 + "px");		
-						if(newP - oldP < -300){
-							check_lodingData = true;
-							loading_content.html('<span class="uers-tell">松手刷新.....</span>');
-						}else{
-							loading_content.html('<span class="uers-tell">点击刷新</span>');
-						}
-					}else{
-						check_lodingData = false;
-						loading.css('height',loading.height() - 10 + "px");
-					}
-					oldY = newY;
-					check_top = true;
-				}
+				// if(check&&con.scrollTop + con.offsetHeight + 1 >= height){
+				// 	scrollT = con.scrollTop;
+				// 	newP = newY = e.touches[0].pageY;
+				// 	if(newY - oldY < -20){
+				// 		oldY = newY + 20;
+				// 	}
+				// 	e.preventDefault();
+				// 	con.scrollTop -= newY - oldY;
+				// 	if(newY - oldY < 0){
+				// 		loading.css('height',loading.height() + 10 + "px");		
+				// 		if(newP - oldP < -300){
+				// 			check_lodingData = true;
+				// 			loading_content.html('<span class="uers-tell">松手刷新.....</span>');
+				// 		}else{
+				// 			loading_content.html('<span class="uers-tell">点击刷新</span>');
+				// 		}
+				// 	}else{
+				// 		check_lodingData = false;
+				// 		loading.css('height',loading.height() - 10 + "px");
+				// 	}
+				// 	oldY = newY;
+				// 	check_top = true;
+				// }
 			})
 			document.addEventListener("touchend",function (e) {
-				loading_start();
+				// loading_start();
 			})
 			loading[0].addEventListener("touchend",function (e) {
 				check_lodingData = true;
