@@ -269,14 +269,14 @@ body {
 .part-third .show-first .search {
   width: 1.90277778rem;
   height: 0.77777778rem;
-  margin-left: 0.13888889rem;
+  margin-right: 0.08333333rem;
   margin-top: 0.16666667rem;
   font-size: 15px;
   color: #fff;
   background: #ed7357;
   border: none;
   display: block;
-  float: left;
+  float: right;
 }
 [data-dpr="2"] .part-third .show-first .search {
   font-size: 30px;
