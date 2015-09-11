@@ -248,6 +248,8 @@ body {
   line-height: 0.77777778rem;
   background: #e0e0e0;
   border: none;
+  display: block;
+  float: left;
 }
 [data-dpr="2"] .part-third .show-first .fill-id {
   font-size: 28px;
@@ -273,6 +275,8 @@ body {
   color: #fff;
   background: #ed7357;
   border: none;
+  display: block;
+  float: left;
 }
 [data-dpr="2"] .part-third .show-first .search {
   font-size: 30px;
