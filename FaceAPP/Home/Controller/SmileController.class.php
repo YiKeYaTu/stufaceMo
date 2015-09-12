@@ -70,60 +70,65 @@ class SmileController extends Controller {
     }
 
     public function vote(){
-        $stuId = session('uid');
-    	$picUid = I('post.uid');
-    	if($picUid){
-            $where = [
-                'uid' => $stuId, 
-                'vote_uid' => $picUid,
-            ];
-            if(M('vote')->where($where)->select()){
+        $time = date('d', time());
+        if($time <= 12){
+            $stuId = session('uid');
+        	$picUid = I('post.uid');
+        	if($picUid){
                 $where = [
                     'uid' => $stuId, 
                     'vote_uid' => $picUid,
                 ];
-                $date = M('vote')->field('vote_day')->where($where)->select();
-                if($date[0]['vote_day'] == date('d', time())){
-                    $this->ajaxReturn(false);
+                if(M('vote')->where($where)->select()){
+                    $where = [
+                        'uid' => $stuId, 
+                        'vote_uid' => $picUid,
+                    ];
+                    $date = M('vote')->field('vote_day')->where($where)->select();
+                    if($date[0]['vote_day'] == date('d', time())){
+                        $this->ajaxReturn(false);
+                    }else{
+                        $save = [
+                            'vote_day' => date('d', time()),
+                        ];
+                        M('vote')->where($where)->save($save);
+                        $votes = M('image')->field('vote')->where("uid=$picUid")->select();
+                        $vote = $votes[0]['vote'] + 1;
+                        $save = [
+                            'vote' => $vote,
+                        ];
+                        M('image')->where("uid=$picUid")->save($save);
+
+                        $data = [
+                            'vote' => $vote,
+                            'top' => $this->get_top($picUid),
+                        ];
+                        $this->ajaxReturn($data, 'json');
+                    }
                 }else{
-                    $save = [
+                    $add = [
+                        'uid' => $stuId, 
+                        'vote_uid' => $picUid,
                         'vote_day' => date('d', time()),
                     ];
-                    M('vote')->where($where)->save($save);
+                    M('vote')->add($add);
                     $votes = M('image')->field('vote')->where("uid=$picUid")->select();
                     $vote = $votes[0]['vote'] + 1;
                     $save = [
                         'vote' => $vote,
                     ];
                     M('image')->where("uid=$picUid")->save($save);
-
                     $data = [
-                        'vote' => $vote,
-                        'top' => $this->get_top($picUid),
-                    ];
+                            'vote' => $vote,
+                            'top' => $this->get_top($picUid),
+                        ];
                     $this->ajaxReturn($data, 'json');
                 }
-            }else{
-                $add = [
-                    'uid' => $stuId, 
-                    'vote_uid' => $picUid,
-                    'vote_day' => date('d', time()),
-                ];
-                M('vote')->add($add);
-                $votes = M('image')->field('vote')->where("uid=$picUid")->select();
-                $vote = $votes[0]['vote'] + 1;
-                $save = [
-                    'vote' => $vote,
-                ];
-                M('image')->where("uid=$picUid")->save($save);
-                $data = [
-                        'vote' => $vote,
-                        'top' => $this->get_top($picUid),
-                    ];
-                $this->ajaxReturn($data, 'json');
-            }
-    	}else{
-    		$this->ajaxReturn(false);
-    	}
+        	}else{
+        		$this->ajaxReturn(false);
+        	}
+        }else{
+            $this->error('已过了投票日期^_^');
+        }
     }
 }
