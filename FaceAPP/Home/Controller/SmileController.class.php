@@ -71,7 +71,7 @@ class SmileController extends Controller {
 
     public function vote(){
         $time = date('d', time());
-        if($time < 12){
+        if($time <= 12){
             $stuId = session('uid');
         	$picUid = I('post.uid');
         	if($picUid){
