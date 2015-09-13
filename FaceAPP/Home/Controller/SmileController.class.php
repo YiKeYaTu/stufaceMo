@@ -128,7 +128,7 @@ class SmileController extends Controller {
         		$this->ajaxReturn(false);
         	}
         }else{
-            $this->error('已过了投票日期^_^');
+            $this->ajaxReturn(false);
         }
     }
 }
