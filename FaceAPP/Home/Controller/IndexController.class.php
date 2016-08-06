@@ -32,9 +32,9 @@ class IndexController extends Controller {
         //     $this->error('不存在该同学');
         // }
         if(!I('get')){
-            print_r(I('get'));
+            print_r($_GET);
         }else{
-            print_r(I('get'));
+            print_r($_GET);
         }
 
         //$this->display();
