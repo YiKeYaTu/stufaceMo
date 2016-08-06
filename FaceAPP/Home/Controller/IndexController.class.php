@@ -45,8 +45,8 @@ class IndexController extends Controller {
         $source = 'http://hongyan.cqupt.edu.cn/BookApi/index.php?s=/Home/Index/';
         $appid = 'wx81a4a4b77ec98ff4';
         $token = 'gh_68f0a1ffc303';
-        $uri = "http://stufacemo.lot.cat";
-        $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$uri&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+        $redirect = "http://stufacemo.lot.cat";
+        $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$redirect&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
         $this->redirect($url);
 
     }
