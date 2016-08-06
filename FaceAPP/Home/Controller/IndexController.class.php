@@ -47,7 +47,7 @@ class IndexController extends Controller {
         $token = 'gh_68f0a1ffc303';
         $redirect = "http://stufacemo.lot.cat/index.php";
         $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$redirect&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
-        redirect($url);
+        redirect("www.baidu.com");
 
     }
     //auth2 获取openid
