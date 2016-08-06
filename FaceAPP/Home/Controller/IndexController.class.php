@@ -31,7 +31,7 @@ class IndexController extends Controller {
         // }else{
         //     $this->error('不存在该同学');
         // }
-
+        $this->get_openid();
         $this->display();
     }
     //不确定代码部分
@@ -40,26 +40,10 @@ class IndexController extends Controller {
         $source = 'http://hongyan.cqupt.edu.cn/BookApi/index.php?s=/Home/Index/';
         $appid = 'wx81a4a4b77ec98ff4';
         $token = 'gh_68f0a1ffc303';
-        $uri = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php/addon/Book/Book/searchV.html";
+        $uri = "http://stufacemo.lot.cat";
+        $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$uri&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+        $this->redirect($url);
 
-        if ($openid !== NULL) {
-            session ( 'openid_' . $token, $openid );
-        } elseif (! empty ( $_REQUEST ['openid'] )) {
-            session ( 'openid_' . $token, $_REQUEST ['openid'] );
-        }
-        $openid = session ( 'openid_' . $token );
-
-        $isWeixinBrowser = isWeixinBrowser ();
-        if (empty ( $openid ) && $isWeixinBrowser) {
-            $callback = GetCurUrl ();
-            OAuthWeixin ( $callback );
-        }
-
-        if (empty ( $openid )) {
-            return - 1;
-    }
-    
-    return $openid;
     }
     //auth2 获取openid
 
