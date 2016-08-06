@@ -45,9 +45,9 @@ class IndexController extends Controller {
         $source = 'http://hongyan.cqupt.edu.cn/BookApi/index.php?s=/Home/Index/';
         $appid = 'wx81a4a4b77ec98ff4';
         $token = 'gh_68f0a1ffc303';
-        $redirect = "http://stufacemo.lot.cat";
+        $redirect = "http://stufacemo.lot.cat/index.php";
         $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$redirect&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
-        $this->redirect($url);
+        redirect($url);
 
     }
     //auth2 获取openid
