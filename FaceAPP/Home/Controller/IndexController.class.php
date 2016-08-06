@@ -4,44 +4,47 @@ use Think\Controller;
 class IndexController extends Controller {
     //不确定代码部分
     public function index(){
-        // $openid = I('get.openid');
-        // if($openid){
-        //     session('openid', $openid);
-        // }else{
-        //     $this->get_openid();
-        // }
-        // $string = 'dsadsadsadsadsadsa';
-        // $time = time();
-        // $access = array(
-        //         'token' => 'gh_68f0a1ffc303',
-        //         'timestamp' => $time,
-        //         'string' => $string,
-        //         'secret' => sha1(sha1($time) . md5($string) . "redrock"),
-        //         'openid' => $openid
-        // );
-        // $url = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/userInfo";
-        // $res1 = $this->curl_api($url, $access);
-        // $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/bindVerify";
-        // $res2 = $this->curl_api($url, $access);
-        // if($res1 && $res2){
-        //     $stuId = $res2['stuId'];
-        //     $stuSex = $res1['sex'];
-        //     session('uid', $stuId);
-        //     session('sex', $stuSex);
-        // }else{
-        //     $this->error('不存在该同学');
-        // }
         if(!$_GET){
-            $this->get_openid();
+            $this->get_code();
         }else{
-            print_r($_GET);
+            $openid = $this->get_openid();
+        }
+        session('openid', $openid);
+        $string = 'dsadsadsadsadsadsa';
+        $time = time();
+        $access = array(
+                'token' => 'gh_68f0a1ffc303',
+                'timestamp' => $time,
+                'string' => $string,
+                'secret' => sha1(sha1($time) . md5($string) . "redrock"),
+                'openid' => $openid
+        );
+        $url = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/userInfo";
+        $res1 = $this->curl_api($url, $access);
+        $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/bindVerify";
+        $res2 = $this->curl_api($url, $access);
+        if($res1 && $res2){
+            $stuId = $res2['stuId'];
+            $stuSex = $res1['sex'];
+            session('uid', $stuId);
+            session('sex', $stuSex);
+        }else{
+            $this->error('您还没有绑定小帮手');
         }
 
-        //$this->display();
+        $this->display();
     }
     //不确定代码部分
-    
     private function get_openid(){
+        $code = $_GET['code'];
+        $appid = "wx81a4a4b77ec98ff4";
+        $appsecret = "872a908ec98bd92f8db811eba2a83236";
+        $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$appsecret&code=$code&grant_type=authorization_code";
+        $res = $this->curl_api($url);
+        return $res['openid'];
+    }
+
+    private function get_code(){
         $source = 'http://hongyan.cqupt.edu.cn/BookApi/index.php?s=/Home/Index/';
         $appid = 'wx81a4a4b77ec98ff4';
         $token = 'gh_68f0a1ffc303';
