@@ -31,11 +31,7 @@ class IndexController extends Controller {
         // }else{
         //     $this->error('不存在该同学');
         // }
-        if(!I('get.code')){
-            $this->get_openid();
-        }else{
-            print_r(I('get'));
-        }
+        echo "hehe";
 
         //$this->display();
     }
