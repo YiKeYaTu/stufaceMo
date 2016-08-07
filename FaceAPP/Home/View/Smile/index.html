@@ -44,14 +44,14 @@
 				$.post("./index.php/Home/Smile/vote",window.location.search.split("&")[window.location.search.split("&").length - 1],function (res) {
 					res = JSON.parse(res);
 					console.log(res);
-					if(res){
+					if(res && res != 2){
 						vote_num.html(res["vote"]);
 						number.html(res["top"]);
 						ranking.html("NO." + res["top"]);
 						console.log("成功");
 					}else{
 						console.log("失败");
-						if(res == "no"){
+						if(res == 2){
 							alert('你还没有绑定小帮手哦，请到小帮手首页绑定');
 						}else{
 							alert("你今天已经给这个笑脸投过票了");
