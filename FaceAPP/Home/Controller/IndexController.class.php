@@ -31,7 +31,7 @@ class IndexController extends Controller {
                     $stuSex = $res1['sex'] ? "男" : "女";
                     session('uid', $stuId);
                     session('sex', $stuSex);
-                    echo session("sex");
+                    var_dump(session());
                     $this->display();
                 }else{
                     $this->error('你还没有绑定小帮手哦');
