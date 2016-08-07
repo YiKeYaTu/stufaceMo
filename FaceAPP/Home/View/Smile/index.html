@@ -15,7 +15,7 @@
 	?>
 	<div class="photo">
 		<div class="container">
-			<img class="show-pic" src="./Public/allimage/<?php echo $key['pic'];?>"/>
+			<img class="show-pic" src="http://202.202.43.125/stuface/Public/allimage/<?php echo $key['pic'];?>"/>
 			<span class="zan">
 				<p class="zan-num"><span class="zan-pic"><i class="iconfont1">&#xe6b2;</i>&nbsp;</span>
 					<span class="num"><?php echo $key['vote']; ?></span>
@@ -41,15 +41,19 @@
 			console.log(window.location.search.split("&")[window.location.search.split("&").length - 1]);
 			$(".vote").bind("touchend",function () {
 
-				$.post("index.php/Home/Smile/vote",window.location.search.split("&")[window.location.search.split("&").length - 1],function (res) {
+				$.post("./index.php/Home/Smile/vote",window.location.search.split("&")[window.location.search.split("&").length - 1],function (res) {
 					res = JSON.parse(res);
 					console.log(res);
-					if(res){
+					if(res && res != "no"){
 						vote_num.html(res["vote"]);
 						number.html(res["top"]);
 						ranking.html("NO." + res["top"]);
 					}else{
-						alert("你今天已经给这个笑脸投过票了");
+						if(res == "no"){
+							alert('你还没有绑定小帮手哦，请到小帮手首页绑定');
+						}else{
+							alert("你今天已经给这个笑脸投过票了");
+						}
 					}
 				})
 			})

@@ -78,7 +78,7 @@ $(function () {
     	formData = new FormData(p_form[0]);
     	cover.css('display',"block");
     	uploading.css('display',"block");
-		$.post("index.php/Home/Upload/upload","",function (res) {
+		$.post("index.php?m=Home&c=Upload&a=upload","",function (res) {
 			res = JSON.parse(res);
 			if(res){
 				formData.append("uid",res["uid"]);
