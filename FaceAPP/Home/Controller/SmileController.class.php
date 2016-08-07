@@ -74,8 +74,7 @@ class SmileController extends Controller {
         if($time <= 12){
             $stuId = session('uid');
             if(stuId == null){
-                $this->ajaxReturn(2);
-                return;
+                $this->ajaxReturn(false);
             }
         	$picUid = I('post.uid');
             echo $stuId."   "$picUid;
