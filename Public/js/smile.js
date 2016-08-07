@@ -13,7 +13,11 @@ $(function () {
 				vote_num.html(res[""]);
 				number.html(res[""]);
 			}else{
-				alert("你今天已经给这个笑脸投过票了");
+				if(res == "no"){
+					alert('你还没有绑定小帮手哦，请到小帮手首页绑定')
+				}else{
+					alert("你今天已经给这个笑脸投过票了");
+				}
 			}
 		})
 	})
