@@ -9,7 +9,7 @@ $(function () {
 	$(".vote").bind("touchend",function () {
 		$.get("",window.location.search.split("&")[window.location.search.split("&").length - 1],function (res) {
 			res = JSON.parse(res);
-			if(res){
+			if(res && res != "no"){
 				vote_num.html(res[""]);
 				number.html(res[""]);
 			}else{
