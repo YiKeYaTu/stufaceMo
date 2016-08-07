@@ -7,6 +7,8 @@ class UploadController extends Controller {
     }
 
     public function upload(){
+        if(session('uid') < 2016000000)
+            $this->error('老腊肉不能上传照片哦');
     	$data = [
     		'uid' => session('uid'),
     		'sex' => session('sex'),
