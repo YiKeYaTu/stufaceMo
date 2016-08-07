@@ -3,21 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>新生笑脸网</title>
-	<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
-	<link rel="stylesheet" href="__PUBLIC__/css/index.css">
-	<script src="__PUBLIC__/js/flexible.js"></script>
-	<script src="__PUBLIC__/js/zepto.min.js"></script>
+	<link rel="stylesheet" href="./__PUBLIC__/css/normalize.css">
+	<link rel="stylesheet" href="./__PUBLIC__/css/index.css">
+	<script src="./__PUBLIC__/js/flexible.js"></script>
+	<script src="./__PUBLIC__/js/zepto.min.js"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="part-first">
 			<div class="upload">
-    			<a href="<{:U('Upload/index')}>"><img src="__PUBLIC__/images/upload.png" alt="请点此上传照片"></a>
+    			<a href="<{:U('Upload/index')}>"><img src="./__PUBLIC__/images/upload.png" alt="请点此上传照片"></a>
     		</div>
 		</div>
 		<div class="part-second">
 			<div class="act-info">
-				<img class="actinfo" src="__PUBLIC__/images/actinfo.png" alt="活动详情">
+				<img class="actinfo" src="./__PUBLIC__/images/actinfo.png" alt="活动详情">
 				<div class="word-info">
 					<p class="title">活动时间:</p>
 					<p class="splicit-info">本次线上参与活动时间为<span class="real-time">9月8日8:00-9月11日00:00</span></p>
@@ -28,13 +28,13 @@
 					<p class="splicit-info">与拍照活动</p>
 					<p class="title host">红岩网校工作站招新宣讲会</p>
 					<p class="splicit-info1">9月13日晚上19：00   将会展示最美笑脸</p>
-					<img class="person" src="__PUBLIC__/images/person.png" alt="人物">
+					<img class="person" src="./__PUBLIC__/images/person.png" alt="人物">
 				</div>				
 			</div>
 		</div>
 		<div class="part-third">
 			<div class="smile-show">
-				<img class="smileshow" src="__PUBLIC__/images/smileshow.png" alt="笑脸展示">
+				<img class="smileshow" src="./__PUBLIC__/images/smileshow.png" alt="笑脸展示">
 				<div class="smileimgs">
 					<div class="show-first">
 						<input class="fill-id" type="text" placeholder="输入笑脸编号"><input class="search" type="button" value="搜索">
@@ -163,7 +163,7 @@
 							for(key in res[i]){
 								obj[key] = res[i][key];
 							}
-							fragment = '<div class="real-show"><span class="ranking">NO.'+ ++paiming +'</span><a href="' + url_l +  "&uid=" + obj.uid + '"><img class="real-pic" src="' +  "http://202.202.43.41/stuface/Public/allimage/" + obj.pic + '"></a><p class="word-info"><span class="zan"><i uid=' + obj.uid  + ' class="iconfont1"></i></span><span class="zan-num">' + parseInt(obj.vote) + '</span><span class="more-info"> <a class="more-info" href="' + url_l +  "&uid=" + obj.uid + '"><img src="__PUBLIC__/images/moreinfo.png"></a></span></p></div>';
+							fragment = '<div class="real-show"><span class="ranking">NO.'+ ++paiming +'</span><a href="' + url_l +  "&uid=" + obj.uid + '"><img class="real-pic" src="' +  "http://202.202.43.41/stuface/Public/allimage/" + obj.pic + '"></a><p class="word-info"><span class="zan"><i uid=' + obj.uid  + ' class="iconfont1"></i></span><span class="zan-num">' + parseInt(obj.vote) + '</span><span class="more-info"> <a class="more-info" href="' + url_l +  "&uid=" + obj.uid + '"><img src="./__PUBLIC__/images/moreinfo.png"></a></span></p></div>';
 							temp = fragment;
 							package_outer.append(fragment);
 							fragment = temp;

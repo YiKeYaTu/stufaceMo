@@ -4,12 +4,12 @@ use Think\Controller;
 class IndexController extends Controller {
     //不确定代码部分
     public function index(){
-        $openid = I('get.openid');
-        if($openid){
-            session('openid', $openid);
+        if(!$_GET){
+            $this->get_code();
         }else{
-            $this->error('没有openid');
+            $openid = $this->get_openid();
         }
+        session('openid', $openid);
         $string = 'dsadsadsadsadsadsa';
         $time = time();
         $access = array(
@@ -29,12 +29,32 @@ class IndexController extends Controller {
             session('uid', $stuId);
             session('sex', $stuSex);
         }else{
-            $this->error('不存在该同学');
+            $this->error('您还没有绑定小帮手');
         }
 
         $this->display();
     }
     //不确定代码部分
+    private function get_openid(){
+        $code = $_GET['code'];
+        $appid = "wx81a4a4b77ec98ff4";
+        $appsecret = "872a908ec98bd92f8db811eba2a83236";
+        $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$appsecret&code=$code&grant_type=authorization_code";
+        $res = $this->curl_api($url);
+        return $res['openid'];
+    }
+
+    private function get_code(){
+        $source = 'http://hongyan.cqupt.edu.cn/BookApi/index.php?s=/Home/Index/';
+        $appid = 'wx81a4a4b77ec98ff4';
+        $token = 'gh_68f0a1ffc303';
+        $redirect = urlencode("http://stufacemo.lot.cat");
+        $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$redirect&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+
+        header("location: $url");
+
+    }
+    //auth2 获取openid
 
     private function curl_api($url, $data){
         // 初始化一个curl对象
