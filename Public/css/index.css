@@ -174,7 +174,7 @@ body {
   color: #ed7356;
 }
 .part-second .host {
-  color: #ed7356;
+  color: #ed7356 !important;
 }
 .part-second .person {
   position: absolute;
