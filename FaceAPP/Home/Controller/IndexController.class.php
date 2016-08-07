@@ -33,7 +33,7 @@ class IndexController extends Controller {
                     session('sex', $stuSex);
                     $this->display();
                 }else{
-                    $this->error('您还没有绑定小帮手');
+                    $this->error('你还没有绑定小帮手哦');
                 }
             }
         }else{
