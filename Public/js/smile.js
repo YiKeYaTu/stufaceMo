@@ -3,7 +3,7 @@ $(function () {
 		number = $(".num1");
 	//主页面加载完后加载背景
 	$("body").css({
-		"background":"url(Public/images/bodybg3.png) 50% 0 fixed no-repeat",
+		"background":"url(./Public/images/bodybg3.png) 50% 0 fixed no-repeat",
 		"background-size":"100% 100%"
 	});
 	$(".vote").bind("touchend",function () {

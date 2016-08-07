@@ -4,35 +4,41 @@ use Think\Controller;
 class IndexController extends Controller {
     //不确定代码部分
     public function index(){
-        if(!$_GET){
-            $this->get_code();
+        if(session('uid') == null && session('openid') == null){
+            if($_GET['code'] == null){
+                $this->get_code();
+                return;
+            }else{
+                $openid = $this->get_openid();
+                session('openid', $openid);
+            }
+            if(session('uid') == null){
+                $string = 'dsadsadsadsadsadsa';
+                $time = time();
+                $access = array(
+                        'token' => 'gh_68f0a1ffc303',
+                        'timestamp' => $time,
+                        'string' => $string,
+                        'secret' => sha1(sha1($time) . md5($string) . "redrock"),
+                        'openid' => $openid
+                );
+                $url = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/userInfo";
+                $res1 = $this->curl_api($url, $access);
+                $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/bindVerify";
+                $res2 = $this->curl_api($url, $access);
+                if($res1 && $res2){
+                    $stuId = $res2['stuId'];
+                    $stuSex = $res1['sex'];
+                    session('uid', $stuId);
+                    session('sex', $stuSex);
+                    $this->display();
+                }else{
+                    $this->error('您还没有绑定小帮手');
+                }
+            }
         }else{
-            $openid = $this->get_openid();
+            $this->display();
         }
-        session('openid', $openid);
-        $string = 'dsadsadsadsadsadsa';
-        $time = time();
-        $access = array(
-                'token' => 'gh_68f0a1ffc303',
-                'timestamp' => $time,
-                'string' => $string,
-                'secret' => sha1(sha1($time) . md5($string) . "redrock"),
-                'openid' => $openid
-        );
-        $url = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/userInfo";
-        $res1 = $this->curl_api($url, $access);
-        $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/bindVerify";
-        $res2 = $this->curl_api($url, $access);
-        if($res1 && $res2){
-            $stuId = $res2['stuId'];
-            $stuSex = $res1['sex'];
-            session('uid', $stuId);
-            session('sex', $stuSex);
-        }else{
-            $this->error('您还没有绑定小帮手');
-        }
-
-        $this->display();
     }
     //不确定代码部分
     private function get_openid(){

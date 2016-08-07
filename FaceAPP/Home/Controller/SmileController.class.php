@@ -74,6 +74,7 @@ class SmileController extends Controller {
         if($time <= 12){
             $stuId = session('uid');
         	$picUid = I('post.uid');
+            echo $stuId."   "$picUid;
         	if($picUid){
                 $where = [
                     'uid' => $stuId, 

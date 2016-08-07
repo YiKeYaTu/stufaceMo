@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="part-first">
 			<div class="upload">
-    			<a href="<{:U('Upload/index')}>"><img src="./__PUBLIC__/images/upload.png" alt="请点此上传照片"></a>
+    			<a href="./<{:U('Upload/index')}>"><img src="./__PUBLIC__/images/upload.png" alt="请点此上传照片"></a>
     		</div>
 		</div>
 		<div class="part-second">
@@ -57,7 +57,7 @@
 						<div class="package">
 							<div class="show-second">
         						
-    					    </div>
+    					</div>
 						</div>			
 					</div>
 					</div>
@@ -110,7 +110,7 @@
 				text = $(".fill-id"),
 				str1 = "综合",
 				str2 = "全部",
-				url_l = "index.php?m=Home&c=smile&a=index";
+				url_l = "./index.php?m=Home&c=smile&a=index";
 			loadingData1();
 			for(i = 0;i < con.children.length;i++){
 				height += con.children[i].offsetHeight;
@@ -154,7 +154,7 @@
 				loading_start();
 			})
 			function loadingData1() {
-				$.post("<{:U('Index/showpic')}>","time=" + start++ + "&sex=" + str2 + "&group=" + str1,function (res) {
+				$.post("./"+"<{:U('Index/showpic')}>","time=" + start++ + "&sex=" + str2 + "&group=" + str1,function (res) {
 					res = JSON.parse(res);
 					console.log(res);
 					loading_content.html('<span class="uers-tell">点击刷新</span>');
@@ -198,7 +198,7 @@
 			package_outer[0].addEventListener("touchend",function (e) {
 				var target = e.target;
 				if(target.className == "iconfont1"){
-					$.post("<{:U('Smile/vote')}>","uid=" + target.getAttribute("uid"),function (res) {
+					$.post("./<{:U('Smile/vote')}>","uid=" + target.getAttribute("uid"),function (res) {
 						console.log(res);
 						res = JSON.parse(res);
 						if(res){
@@ -271,7 +271,7 @@
 				$.post("<{:U('Smile/select')}>","id=" + value,function (res) {
 					res = JSON.parse(res);
 					if(res){
-						window.location = "index.php?m=Home&c=smile&a=index&id=" + value;
+						window.location = "./index.php?m=Home&c=smile&a=index&id=" + value;
 					}else{
 						alert("没有这个笑脸哦");
 					}
