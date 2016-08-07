@@ -44,7 +44,7 @@
 				$.post("./index.php/Home/Smile/vote",window.location.search.split("&")[window.location.search.split("&").length - 1],function (res) {
 					res = JSON.parse(res);
 					console.log(res);
-					if(res && res != "no"){
+					if(res != "no" || res){
 						vote_num.html(res["vote"]);
 						number.html(res["top"]);
 						ranking.html("NO." + res["top"]);
