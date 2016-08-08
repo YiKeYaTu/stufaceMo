@@ -32,7 +32,11 @@ class IndexController extends Controller {
                 $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket";
                 $res3 = $this->curl_api($url, $access);
 
-                $signature = "jsapi_ticket=$access['data']&noncestr=$access['str']&timestamp=$access['timeStamp']&url=$self";
+                $data = $access['data'];
+                $str = $access['str'];
+                $timestamp = $access['timestamp'];
+
+                $signature = sha1("jsapi_ticket=$data&noncestr=$str$&timestamp=$access&url=$self");
 
                 var_dump($signature);
 
