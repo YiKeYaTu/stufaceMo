@@ -4,7 +4,7 @@ use Think\Controller;
 class IndexController extends Controller {
     //不确定代码部分
     public function index(){
-        if(session('uid') == null && session('openid') == null){
+        // if(session('uid') == null && session('openid') == null){
             if($_GET['code'] == null){
                 $this->get_code();
                 return;
@@ -36,7 +36,7 @@ class IndexController extends Controller {
                 $str = $access['str'];
                 $timestamp = $access['timestamp'];
 
-                $signature = 'jsapi_ticket=$data&noncestr=$str$&timestamp=$access&url=$self';
+                $signature = sha1("jsapi_ticket=$data&noncestr=$str$&timestamp=$access&url=$self");
 
                 var_dump($signature);
 
@@ -49,10 +49,10 @@ class IndexController extends Controller {
                 }else{
                     $this->error('你还没有绑定小帮手哦');
                 }
-            }
-        }else{
-            $this->display();
-        }
+            // }
+        // }else{
+            // $this->display();
+        // }
     }
     //不确定代码部分
     private function get_openid(){
