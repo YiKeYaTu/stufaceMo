@@ -49,7 +49,7 @@ class IndexController extends Controller {
                 }else{
                     $this->error('你还没有绑定小帮手哦');
                 }
-            // }
+            }
         // }else{
             // $this->display();
         // }
