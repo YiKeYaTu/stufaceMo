@@ -26,6 +26,9 @@ class IndexController extends Controller {
                 $res1 = $this->curl_api($url, $access);
                 $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/bindVerify";
                 $res2 = $this->curl_api($url, $access);
+                $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket";
+                $res3 = $this->curl_api($url, $access);
+                var_dump($res3);
                 if($res1 && $res2){
                     $stuId = $res2['stuId'];
                     $stuSex = $res1['sex'] ? "女" : "男";
