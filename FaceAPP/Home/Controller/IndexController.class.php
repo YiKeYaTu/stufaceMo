@@ -26,8 +26,6 @@ class IndexController extends Controller {
 
         $signature = sha1("jsapi_ticket=$data&noncestr=$str$&timestamp=$access&url=$self");
 
-        var_dump($signature);
-
         if(session('uid') == null && session('openid') == null){
             if($_GET['code'] == null){
                 $this->get_code();
