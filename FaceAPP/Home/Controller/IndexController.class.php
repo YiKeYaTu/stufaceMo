@@ -29,7 +29,7 @@ class IndexController extends Controller {
         $access['appid'] = 'wx81a4a4b77ec98ff4';
         $access['signature'] = $signature;
 
-        $this->assign($access);
+        $this->assign('access', $access);
 
         if(session('uid') == null && session('openid') == null){
             if($_GET['code'] == null){
