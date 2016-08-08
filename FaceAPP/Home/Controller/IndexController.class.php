@@ -13,6 +13,9 @@ class IndexController extends Controller {
                 session('openid', $openid);
             }
             if(session('uid') == null){
+
+                $self = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+
                 $string = 'dsadsadsadsadsadsa';
                 $time = time();
                 $access = array(
@@ -28,7 +31,11 @@ class IndexController extends Controller {
                 $res2 = $this->curl_api($url, $access);
                 $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket";
                 $res3 = $this->curl_api($url, $access);
-                var_dump($res3);
+
+                $signature = sha1("jsapi_ticket=$access['data']&noncestr=$access['str']&timestamp=$access['timeStamp']&url=$self");
+
+                var_dump($signature);
+
                 if($res1 && $res2){
                     $stuId = $res2['stuId'];
                     $stuSex = $res1['sex'] ? "女" : "男";
