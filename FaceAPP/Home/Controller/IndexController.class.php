@@ -36,7 +36,7 @@ class IndexController extends Controller {
                 $str = $access['str'];
                 $timestamp = $access['timestamp'];
 
-                $signature = "jsapi_ticket=$data&noncestr=$str$&timestamp=$access&url=$self";
+                $signature = 'jsapi_ticket=$data&noncestr=$str$&timestamp=$access&url=$self';
 
                 var_dump($signature);
 
