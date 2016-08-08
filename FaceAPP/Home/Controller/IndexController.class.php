@@ -12,7 +12,7 @@ class IndexController extends Controller {
                 $openid = $this->get_openid();
                 session('openid', $openid);
             }
-            if(session('uid') == null){
+            // if(session('uid') == null){
 
                 $self = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 
@@ -49,9 +49,9 @@ class IndexController extends Controller {
                 }else{
                     $this->error('你还没有绑定小帮手哦');
                 }
-            }
+            // }
         // }else{
-            // $this->display();
+        //     $this->display();
         // }
     }
     //不确定代码部分
