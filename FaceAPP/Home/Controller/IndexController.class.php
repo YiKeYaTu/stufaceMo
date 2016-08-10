@@ -71,7 +71,6 @@ class IndexController extends Controller {
     private function get_openid(){
         $code = $_GET['code'];
         $appid = "wx81a4a4b77ec98ff4";
-        $appsecret = "872a908ec98bd92f8db811eba2a83236";
         $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$appsecret&code=$code&grant_type=authorization_code";
         $res = $this->curl_api($url);
         return $res['openid'];
