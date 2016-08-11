@@ -4,33 +4,6 @@ use Think\Controller;
 class IndexController extends Controller {
     //不确定代码部分
     public function index(){
-
-        $self = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-
-        $string = 'dsadsadsadsadsadsa';
-        $time = time();
-        $access = array(
-                'token' => 'gh_68f0a1ffc303',
-                'timestamp' => $time,
-                'string' => $string,
-                'secret' => sha1(sha1($time) . md5($string) . "redrock"),
-                'openid' => $openid
-        );
-
-        $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket";
-        $res3 = $this->curl_api($url, $access);
-
-        $data = $res3['data'];
-        $str = $access['string'];
-        $timestamp = $access['timestamp'];
-
-        $signature = sha1("jsapi_ticket=$data&noncestr=$str$&timestamp=$timestamp&url=$self");
-
-        $access['appid'] = 'wx81a4a4b77ec98ff4';
-        $access['signature'] = $signature;
-
-        $this->assign('access', $access);
-
         if(session('uid') == null && session('openid') == null){
             if($_GET['code'] == null){
                 $this->get_code();
@@ -40,14 +13,19 @@ class IndexController extends Controller {
                 session('openid', $openid);
             }
             if(session('uid') == null){
-
-                
+                $string = 'dsadsadsadsadsadsa';
+                $time = time();
+                $access = array(
+                        'token' => 'gh_68f0a1ffc303',
+                        'timestamp' => $time,
+                        'string' => $string,
+                        'secret' => sha1(sha1($time) . md5($string) . "redrock"),
+                        'openid' => $openid
+                );
                 $url = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/userInfo";
                 $res1 = $this->curl_api($url, $access);
                 $url =  "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/bindVerify";
                 $res2 = $this->curl_api($url, $access);
-            
-
                 if($res1 && $res2){
                     $stuId = $res2['stuId'];
                     $stuSex = $res1['sex'] ? "女" : "男";
@@ -55,12 +33,11 @@ class IndexController extends Controller {
                     session('sex', $stuSex);
                     $this->display();
                 }else{
-                    $this->error('你还没有绑定小帮手哦');
+                    $this->error('没有绑定小帮手');
                 }
             }
         }else{
-            $this->display();
-        }
+        $this->display();
     }
     //不确定代码部分
     private function get_openid(){
