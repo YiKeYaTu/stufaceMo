@@ -49,7 +49,7 @@ class IndexController extends Controller {
             'string' => 'dsadsadsa',
             'secret' => sha1(sha1($time) . md5('dsadsadsa') . "redrock")
         );
-        $this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', )
+        $this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', $conf);
     }
     private function get_openid(){
         $code = $_GET['code'];
