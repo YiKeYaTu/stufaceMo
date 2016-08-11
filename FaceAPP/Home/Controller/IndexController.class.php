@@ -42,14 +42,26 @@ class IndexController extends Controller {
     }
     //不确定代码部分
     public function getjsapi(){
-        $time = time();
+        $timestamp = time();
+        $appid = "wx81a4a4b77ec98ff4";
+        $nonceStr = "dsadsadsa";
         $conf = array(
             'token' => 'gh_68f0a1ffc303',
             'timestamp' => $time,
-            'string' => 'dsadsadsa',
-            'secret' => sha1(sha1($time) . md5('dsadsadsa') . "redrock")
+            'string' => $nonceStr,
+            'secret' => sha1(sha1($timestamp) . md5($nonceStr) . "redrock")
         );
-        print_r($this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', $conf));
+        $data = $this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', $conf);
+        $jsapi = data['data']."&noncestr=$nonceStr&timestamp=$timestamp&url=$_SERVER['host']".$_SERVER['self'];
+        echo $jsapi;
+        $jsapi_tickit = shi1($jsapi);
+        print_r(array(
+            'appId': $appid, // 必填，公众号的唯一标识
+            'timestamp': $timestamp, // 必填，生成签名的时间戳
+            'nonceStr': $nonceStr, // 必填，生成签名的随机串
+            'signature': $jsapi_tickit,// 必填，签名，见附录1'
+        ));
+
     }
     private function get_openid(){
         $code = $_GET['code'];
