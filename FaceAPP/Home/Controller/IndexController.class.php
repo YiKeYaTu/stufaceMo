@@ -37,10 +37,11 @@ class IndexController extends Controller {
                 }
             }
         }else{
-        $this->display();
+            $this->display();
+        }
     }
     //不确定代码部分
-    public function(){
+    public function getjsapi(){
         $time = time();
         $conf = array(
             'token' => 'gh_68f0a1ffc303',
