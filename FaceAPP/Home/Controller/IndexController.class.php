@@ -40,6 +40,16 @@ class IndexController extends Controller {
         $this->display();
     }
     //不确定代码部分
+    public function(){
+        $time = time();
+        $conf = array(
+            'token' => 'gh_68f0a1ffc303',
+            'timestamp' => $time,
+            'string' => 'dsadsadsa',
+            'secret' => sha1(sha1($time) . md5('dsadsadsa') . "redrock")
+        );
+        $this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', )
+    }
     private function get_openid(){
         $code = $_GET['code'];
         $appid = "wx81a4a4b77ec98ff4";
