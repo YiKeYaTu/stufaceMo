@@ -52,9 +52,9 @@ class IndexController extends Controller {
             'secret' => sha1(sha1($timestamp) . md5($nonceStr) . "redrock")
         );
         $data = $this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', $conf);
-        $jsapi = $data['data']."&noncestr=$nonceStr"."&timestamp=$timestamp"."&url=".$_SERVER['HTTP_HOST'].$_SERVER['HTTP_SELF'];
+        $jsapi = $data['data']."&noncestr=$nonceStr"."&"."timestamp=$timestamp"."&url=".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
         $jsapi_tickit = sha1($jsapi);
-        return array(
+        $this->ajaxReturn(
             'appId' => $appid, // 必填，公众号的唯一标识
             'timestamp' => $timestamp, // 必填，生成签名的时间戳
             'nonceStr' => $nonceStr, // 必填，生成签名的随机串
