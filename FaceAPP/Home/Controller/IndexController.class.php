@@ -47,7 +47,7 @@ class IndexController extends Controller {
         $nonceStr = "dsadsadsa";
         $conf = array(
             'token' => 'gh_68f0a1ffc303',
-            'timestamp' => $time,
+            'timestamp' => $timestamp,
             'string' => $nonceStr,
             'secret' => sha1(sha1($timestamp) . md5($nonceStr) . "redrock")
         );
