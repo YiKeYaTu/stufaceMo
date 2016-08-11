@@ -24,10 +24,10 @@ class IndexController extends Controller {
         $str = $access['string'];
         $timestamp = $access['timestamp'];
 
-        var_dump($self);
-        var_dump($res3);
-        var_dump($str);
-        var_dump($timestamp);
+        // var_dump($self);
+        // var_dump($res3);
+        // var_dump($str);
+        // var_dump($timestamp);
 
         $signature = sha1("jsapi_ticket=$data&noncestr=$str$&timestamp=$timestamp&url=$self");
 
