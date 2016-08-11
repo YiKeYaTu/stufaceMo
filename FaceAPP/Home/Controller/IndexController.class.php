@@ -54,12 +54,12 @@ class IndexController extends Controller {
         $data = $this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', $conf);
         $jsapi = $data['data']."&noncestr=$nonceStr"."&"."timestamp=$timestamp"."&url=".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
         $jsapi_tickit = sha1($jsapi);
-        $this->ajaxReturn(
+        $this->ajaxReturn(array(
             'appId' => $appid, // 必填，公众号的唯一标识
             'timestamp' => $timestamp, // 必填，生成签名的时间戳
             'nonceStr' => $nonceStr, // 必填，生成签名的随机串
             'signature' => $jsapi_tickit,// 必填，签名，见附录1'
-        );
+        ));
 
     }
     private function get_openid(){
