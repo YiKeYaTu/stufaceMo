@@ -32,6 +32,7 @@ class IndexController extends Controller {
                     session('uid', $stuId);
                     session('sex', $stuSex);
                     $data = $this->getjsapi('jsapi', $data);
+                    $this.assign('jsapi', $data);
                     $this->display();
                 }else{
                     $this->error('没有绑定小帮手');
