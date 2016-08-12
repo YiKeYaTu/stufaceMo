@@ -57,6 +57,7 @@ class IndexController extends Controller {
         );
         $data = $this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', $conf);
         $jsapi = "jsapi_ticket=".$data['data']."&noncestr=$nonceStr"."&timestamp=$timestamp"."&url=".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+        var_dump($jsapi);
         $jsapi_tickit = sha1($jsapi);
         return array(
             'appId' => $appid, // 必填，公众号的唯一标识
