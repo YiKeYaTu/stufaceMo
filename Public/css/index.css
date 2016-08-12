@@ -6,11 +6,12 @@ body {
   background: #ffd472;
 }
 .logo {
-  width: 3rem;
+  width: 2.6rem;
   height: 1rem;
   position: absolute;
-  left: 0.5rem;
-  top: 4.9rem;
+  left: 0.2rem;
+  top: 4.4rem;
+  z-index: 111;
 }
 .container {
   height: 100%;
