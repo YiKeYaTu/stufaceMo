@@ -32,6 +32,7 @@ class IndexController extends Controller {
                     session('uid', $stuId);
                     session('sex', $stuSex);
                     $data = $this->getjsapi('jsapi', $data);
+                    var_dump($data);
                     $this.assign('jsapi', $data);
                     $this->display();
                 }else{
@@ -40,6 +41,7 @@ class IndexController extends Controller {
             }
         }else{
             $data = $this->getjsapi();
+            var_dump($data);
             $this.assign('jsapi', $data);
             $this->display();
         }
