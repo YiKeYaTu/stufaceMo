@@ -56,7 +56,7 @@ class IndexController extends Controller {
             'secret' => sha1(sha1($timestamp) . md5($nonceStr) . "redrock")
         );
         $data = $this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', $conf);
-        $jsapi = "jsapi_ticket=".$data['data']."&noncestr=$nonceStr"."&timestamp=$timestamp"."&url=".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+        $jsapi = "jsapi_ticket=".$data['data']."&noncestr=$nonceStr"."&=$timestamp"."&url=".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
         var_dump($jsapi);
         $jsapi_tickit = sha1($jsapi);
         return array(
