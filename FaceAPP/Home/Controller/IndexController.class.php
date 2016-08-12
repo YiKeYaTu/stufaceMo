@@ -33,7 +33,7 @@ class IndexController extends Controller {
                     session('sex', $stuSex);
                     $data = $this->getjsapi('jsapi', $data);
                     var_dump($data);
-                    $this.assign('jsapi', $data);
+                    $this->assign('jsapi', $data);
                     $this->display();
                 }else{
                     $this->error('没有绑定小帮手');
@@ -42,7 +42,7 @@ class IndexController extends Controller {
         }else{
             $data = $this->getjsapi();
             var_dump($data);
-            $this.assign('jsapi', $data);
+            $this->assign('jsapi', $data);
             $this->display();
         }
     }
