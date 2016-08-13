@@ -30,6 +30,7 @@ class IndexController extends Controller {
                     $stuId = $res2['stuId'];
                     $stuSex = $res1['sex'] ? "女" : "男";
                     session('uid', $stuId);
+                    echo stuId;
                     session('sex', $stuSex);
                     $data = $this->getjsapi('jsapi', $data);
                     $this->assign('jsapi', $data);
