@@ -71,7 +71,7 @@ class SmileController extends Controller {
 
     public function vote(){
             $stuId = session('uid');
-            if(!stuId){
+            if(!$stuId){
                 $this->ajaxReturn(2);
                 return;
             }
