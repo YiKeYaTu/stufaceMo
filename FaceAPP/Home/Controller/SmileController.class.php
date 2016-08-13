@@ -73,6 +73,7 @@ class SmileController extends Controller {
             $stuId = session('uid');
             if(!stuId){
                 $this->ajaxReturn(2);
+                return;
             }
         	$picUid = I('post.uid');
         	if($picUid){
