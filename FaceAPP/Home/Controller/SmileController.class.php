@@ -70,9 +70,11 @@ class SmileController extends Controller {
     }
 
     public function vote(){
+            var_dump(session());
             $stuId = session('uid');
+            var_dump($stuId);
             if(!$stuId){
-                $this->ajaxReturn(2);
+                // $this->ajaxReturn(2);
                 return;
             }
         	$picUid = I('post.uid');
