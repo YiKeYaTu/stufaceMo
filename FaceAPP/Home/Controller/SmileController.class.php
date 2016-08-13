@@ -70,10 +70,8 @@ class SmileController extends Controller {
     }
 
     public function vote(){
-        $time = date('d', time());
-        if($time <= 12){
             $stuId = session('uid');
-            if(!$stuId){
+            if(!stuId){
                 $this->ajaxReturn(2);
             }
         	$picUid = I('post.uid');
@@ -130,8 +128,5 @@ class SmileController extends Controller {
         	}else{
         		$this->ajaxReturn(false);
         	}
-        }else{
-            $this->ajaxReturn(false);
-        }
     }
 }
