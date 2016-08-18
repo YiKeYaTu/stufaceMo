@@ -2,6 +2,27 @@
 namespace Home\Controller;
 use Think\Controller;
 class SmileController extends Controller {
+    public function getjsapi(){
+        $timestamp = time();
+        $appid = "wx81a4a4b77ec98ff4";
+        $nonceStr = "dsadsadsa";
+        $conf = array(
+            'token' => 'gh_68f0a1ffc303',
+            'timestamp' => $timestamp,
+            'string' => $nonceStr,
+            'secret' => sha1(sha1($timestamp) . md5($nonceStr) . "redrock")
+        );
+        $data = $this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', $conf);
+        $jsapi = "jsapi_ticket=".$data['data']."&noncestr=$nonceStr".'&timestamp'."=$timestamp"."&url=".'http://hongyan.cqupt.edu.cn/stufaceMo'.$_SERVER["REQUEST_URI"];
+        $jsapi_tickit = sha1($jsapi);
+        return array(
+            'appId' => $appid, // 必填，公众号的唯一标识
+            'timestamp' => $timestamp, // 必填，生成签名的时间戳
+            'nonceStr' => $nonceStr, // 必填，生成签名的随机串
+            'signature' => $jsapi_tickit,// 必填，签名，见附录1'
+        );
+
+    }
     public function index(){
         if($picUid = I('uid')){
             $picId = '';
@@ -24,6 +45,8 @@ class SmileController extends Controller {
             $top = M('image')->where($where)->count() + 1;
             $this->assign('message', $message);
             $this->assign('top', $top);
+            $data = $this->getjsapi();
+            $this->assign('jsapi', $data);
             $this->display();
         }else if($id = I('id')){
             $where = [
@@ -38,6 +61,8 @@ class SmileController extends Controller {
                 $top = M('image')->where($where)->count() + 1;
                 $this->assign('message', $message);
                 $this->assign('top', $top);
+                $data = $this->getjsapi();
+                $this->assign('jsapi', $data);
                 $this->display();
             }else{
                 $this->error('没有这张照片');
