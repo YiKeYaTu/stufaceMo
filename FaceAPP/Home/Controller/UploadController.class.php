@@ -18,14 +18,15 @@ class UploadController extends Controller {
     	];
             $uid = session('uid');
             $sex = session('sex');
+            $name = session('name');
             $where = [
                 'uid' => $uid,
-                    ];
+            ];
             if(!M('user')->where($where)->count()){
                 $add = [
-                    'name' => 0,
+                    'name' => $name,
                     'uid' => $uid,
-                    'sex' => 0,
+                    'sex' => $sex,
                     'has_upload' => 0,
                     'vote_day' => 0,
                 ];
