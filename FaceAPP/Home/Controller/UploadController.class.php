@@ -2,6 +2,20 @@
 namespace Home\Controller;
 use Think\Controller;
 class UploadController extends Controller {
+    private function curl_api($url, $data){
+        // 初始化一个curl对象
+        $ch = curl_init();
+        curl_setopt ( $ch, CURLOPT_URL, $url );
+        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+        curl_setopt ( $ch, CURLOPT_POST, 1 );
+        curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+        curl_setopt ( $ch, CURLOPT_POSTFIELDS, http_build_query($data) );
+        // 运行curl，获取网页。
+        $contents = json_decode(curl_exec($ch),true);
+        // 关闭请求
+        curl_close($ch);
+        return $contents;
+    }
     public function getjsapi(){
         $timestamp = time();
         $appid = "wx81a4a4b77ec98ff4";
