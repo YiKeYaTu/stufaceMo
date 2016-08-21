@@ -213,6 +213,7 @@
 						res = JSON.parse(res);
 						if(res && res !=2){
 							target.parentNode.nextSibling.innerHTML = res.vote;
+							alert('投票成功');
 						}else{
 							if(res == 2){
 								alert("您还没有绑定小帮手，请到绑定页面绑定");

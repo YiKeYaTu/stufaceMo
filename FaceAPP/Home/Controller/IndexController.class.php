@@ -4,7 +4,7 @@ use Think\Controller;
 class IndexController extends Controller {
     //不确定代码部分
     public function index(){
-        if(session('uid') == null && session('openid') == null){
+        if(session('uid') == null || session('openid') == null){
             if($_GET['code'] == null){
                 $this->get_code();
                 return;

@@ -46,6 +46,7 @@
 					res = JSON.parse(res);
 					console.log(res);
 					if(res && res != 2){
+						alert('投票成功');
 						vote_num.html(res["vote"]);
 						number.html(res["top"]);
 						ranking.html("NO." + res["top"]);
