@@ -81,6 +81,8 @@ $(function () {
 		$.post("index.php?m=Home&c=Upload&a=upload","",function (res) {
 			res = JSON.parse(res);
 			if(res){
+				console.log(res);
+				console.log(decodeURI(res["sex"]));
 				formData.append("uid",res["uid"]);
 				formData.append("sex",res["sex"]);
 				formData.append("form",res["form"]);
@@ -91,7 +93,7 @@ $(function () {
 					if (xhr.status == 200) { //上传图片功能 这里我向你发送文件后 你需要判断是否上传成功 返回true或者false
 						if(res.currentTarget.response == "true"){
 							alert("上传成功,请等待管理员审核");
-							window.history.back(-1);
+							// window.history.back(-1);
 						}else{
 							upload_info1.css('display',"block");
 						}
