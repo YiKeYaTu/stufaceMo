@@ -28,7 +28,7 @@ class IndexController extends Controller {
                 $res2 = $this->curl_api($url, $access);
                 if($res1 && $res2){
                     $stuId = $res2['stuId'];
-                    $stuSex = $res1['sex'] ? "男" : "女";
+                    $stuSex = $res1['sex'] ? "女" : "男";
                     session('uid', $stuId);
                     session('sex', $stuSex);
                     session('name', $res2['realname']);
