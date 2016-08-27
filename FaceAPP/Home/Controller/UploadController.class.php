@@ -39,6 +39,6 @@ class UploadController extends Controller {
 
     public function changesex(){
         $Model = new \Think\Model();
-        $Model->execute("update tbl_image set sex='女' where id in (137)");
+        $Model->execute("update tbl_image set sex='女' where id in (131, 132, 125)");
     }
 }      
