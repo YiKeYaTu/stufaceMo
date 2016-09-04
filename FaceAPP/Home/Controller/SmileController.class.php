@@ -27,7 +27,7 @@ class SmileController extends Controller {
             'secret' => sha1(sha1($timestamp) . md5($nonceStr) . "redrock")
         );
         $data = $this->curl_api('http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket', $conf);
-        $jsapi = "jsapi_ticket=".$data['data']."&noncestr=$nonceStr".'&timestamp'."=$timestamp"."&url=".'http://hongyan.cqupt.edu.cn/stufaceMo'.$_SERVER["REQUEST_URI"];
+        $jsapi = "jsapi_ticket=".$data['data']."&noncestr=$nonceStr".'&timestamp'."=$timestamp"."&url=".$_SERVER['HTTP_REFERER'].'stufaceMo'.$_SERVER["REQUEST_URI"];
         $jsapi_tickit = sha1($jsapi);
         return array(
             'appId' => $appid, // 必填，公众号的唯一标识
