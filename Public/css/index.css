@@ -14,8 +14,6 @@ body {
   z-index: 111;
 }
 .container {
-  height: 100%;
-  overflow: scroll;
   position: relative;
   top: 0;
 }
