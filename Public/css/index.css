@@ -481,6 +481,7 @@ body {
 .test {
   position: relative;
   width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 #wrapper {
   width: 100%;
