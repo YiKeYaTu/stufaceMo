@@ -477,7 +477,6 @@ body {
   font-size: 52px;
 }
 .test {
-  position: relative;
   width: 100%;
   -webkit-overflow-scrolling: touch;
 }
