@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>smile</title>
-	<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
-	<link rel="stylesheet" href="__PUBLIC__/css/smiles.css">
-	<script src="__PUBLIC__/js/flexible.js"></script>
-	<script src="__PUBLIC__/js/zepto.min.js"></script>
-	<script src="__PUBLIC__/js/smile.js"></script>
+	<link rel="stylesheet" href="./__PUBLIC__/css/normalize.css">
+	<link rel="stylesheet" href="./__PUBLIC__/css/smiles.css">
+	<script src="./__PUBLIC__/js/flexible.js"></script>
+	<script src="./__PUBLIC__/js/zepto.min.js"></script>
+	<script src="./__PUBLIC__/js/smile.js"></script>
 </head>
 <body>
 	<?php 
@@ -15,40 +15,108 @@
 	?>
 	<div class="photo">
 		<div class="container">
-			<img class="show-pic" src="http://202.202.43.41/stuface/Public/allimage/<?php echo $key['pic'];?>"/>
+			<img class="show-pic" src="http://202.202.43.125/stuface/Public/allimage/<?php echo $key['pic'];?>"/>
 			<span class="zan">
 				<p class="zan-num"><span class="zan-pic"><i class="iconfont1">&#xe6b2;</i>&nbsp;</span>
-					<span class="num"><?php echo $key['vote']; ?></span>
+					<span class="num"><?php echo (int) $key['vote']; ?></span>
 				</p>
 			</span>
 			<span class="ranked">
-				<p class="tic-num"><span class="zan-pic">排名:</span><span class="num1">&nbsp;&nbsp;<?php echo $key['ID'];?></span></p>
+				<p class="tic-num"><span class="zan-pic">排名:</span><span class="num1">&nbsp;&nbsp;<?php echo $top;?></span></p>
 			</span>
 		</div>
-		<span class="ranking">NO.<?php echo $key['ID'];?></span>
+		<span class="ranking">NO.<?php echo $key['id'];?></span>
 	</div>
 	<input class="vote" type="button" value="为笑脸投一票">
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<script>
 		$(function () {
 			var vote_num = $(".num"),
-				number = $(".num1");
+				number = $(".num1"),
+				ranking = $(".ranking");
 			//主页面加载完后加载背景
 			$("body").css({
-				"background":"url(Public/images/bodybg3.png) 50% 0 fixed no-repeat",
+				"background":"url(./Public/images/bodybg3.png) 50% 0 fixed no-repeat",
 				"background-size":"100% 100%"
 			});
+			console.log(window.location.search.split("&")[window.location.search.split("&").length - 1]);
 			$(".vote").bind("touchend",function () {
-				$.post("<{:U('Smile/vote')}>",window.location.search.split("&")[window.location.search.split("&").length - 1],function (res) {
-					res = JSON.parse(res);
-					console.log(res);
-					if(res){
-						vote_num.html(res["vote"]);
-						number.html(res["top"]);
-					}else{
-						alert("你今天已经给这个笑脸投过票了");
-					}
-				})
+				alert('投票已经结束了哦');
 			})
+		});
+
+		var shareTitle = '[新生笑脸]快来参加2016重邮迎新季——“寻找最美笑脸”活动之“晒晒通知书”，有好礼哦！',
+			shareLink = window.location.href,
+			shareImg = 'http://hongyan.cqupt.edu.cn/stufaceMo//Public/images/share_img.png';
+
+		wx.config({
+		    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+		    appId: "<?php echo $jsapi['appId']?>", // 必填，公众号的唯一标识
+		    timestamp: "<?php echo $jsapi['timestamp']?>", // 必填，生成签名的时间戳
+		    nonceStr: "<?php echo $jsapi['nonceStr']?>", // 必填，生成签名的随机串
+		    signature: "<?php echo $jsapi['signature']?>",// 必填，签名，见附录1
+		    jsApiList: [
+		    	'onMenuShareTimeline', 'onMenuShareAppMessage',
+		    	'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone'
+		    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+
+		wx.ready(function(){
+			wx.onMenuShareTimeline({
+				title: shareTitle, // 分享标题
+			    link: shareLink, // 分享链接
+			    imgUrl: shareImg, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+			wx.onMenuShareAppMessage({
+				title: shareTitle, // 分享标题
+			    link: shareLink, // 分享链接
+			    imgUrl: shareImg, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+			wx.onMenuShareQQ({
+				title: shareTitle, // 分享标题
+			    link: shareLink, // 分享链接
+			    imgUrl: shareImg, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+			wx.onMenuShareWeibo({
+				title: shareTitle, // 分享标题
+			    link: shareLink, // 分享链接
+			    imgUrl: shareImg, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+			wx.onMenuShareQZone({
+				title: shareTitle, // 分享标题
+			    link: shareLink, // 分享链接
+			    imgUrl: shareImg, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
 		});
 		
 	</script>

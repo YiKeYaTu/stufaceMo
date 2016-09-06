@@ -3,46 +3,54 @@
 <head>
 	<meta charset="UTF-8">
 	<title>新生笑脸网</title>
-	<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
-	<link rel="stylesheet" href="__PUBLIC__/css/index.css">
-	<script src="__PUBLIC__/js/flexible.js"></script>
-	<script src="__PUBLIC__/js/zepto.min.js"></script>
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="./__PUBLIC__/css/normalize.css">
+	<link rel="stylesheet" href="./__PUBLIC__/css/index.css">
+	<script src="./__PUBLIC__/js/flexible.js"></script>
+	<script src="./__PUBLIC__/js/zepto.min.js"></script>
 </head>
 <body>
 	<div class="container">
+		<!-- <img class="logo" src="./__PUBLIC__/images/logo.png" style="
+			width: 3rem;
+			height: 1rem;
+			position: absolute;
+			left: 0.15rem;
+			top: 4.4rem;
+		"></img> -->
 		<div class="part-first">
 			<div class="upload">
-    			<a href="<{:U('Upload/index')}>"><img src="__PUBLIC__/images/upload.png" alt="请点此上传照片"></a>
+    			<a href="./<{:U('Upload/index')}>"><img src="./__PUBLIC__/images/upload.png" alt="请点此上传照片"></a>
     		</div>
 		</div>
 		<div class="part-second">
 			<div class="act-info">
-				<img class="actinfo" src="__PUBLIC__/images/actinfo.png" alt="活动详情">
+				<img class="actinfo" src="./__PUBLIC__/images/actinfo.png" alt="活动详情">
 				<div class="word-info">
 					<p class="title">活动时间:</p>
-					<p class="splicit-info">本次线上参与活动时间为<span class="real-time">9月8日8:00-9月11日12:00</span></p>
-					<p class="title"><span class="act-obj">活动对象: </span><span class="real-obj">2015级</span><span class="fresh-stu">所有小鲜肉</span></p>
+					<p class="splicit-info">本次线上参与活动时间为<span class="real-time">即日起-9月6日8:00</span></p>
+					<p class="title"><span class="act-obj">活动主题: </span><span class="fresh-stu">新生笑脸征集——晒晒通知书</span></p>
+					<p class="title"><span class="act-obj">活动对象: </span><span class="real-obj">2016级</span><span class="fresh-stu">所有小鲜肉</span></p>
 					<p class="title">参与方式:</p>
-					<p class="splicit-info"><span class="mtd1">方式一：</span>上传自己的“笑脸”照片（每人限一张)参与活动</p>
-					<p class="splicit-info"><span class="mtd1">方式二：</span>9月9日至10日在雨红莲操场和风雨操场参</p>
-					<p class="splicit-info">与拍照活动</p>
-					<p class="title host">红岩网校工作站招新宣讲会</p>
-					<p class="splicit-info1">9月19日晚上19：00   将会展示最美笑脸</p>
-					<img class="person" src="__PUBLIC__/images/person.png" alt="人物">
+					<p class="splicit-info"><span class="mtd1"></span>上传自己的“笑脸”照片（每人限一张)参与活动</p>
+					<p class="splicit-info"><span class="mtd1"></span>（需绑定小帮手，绑定方式：小帮手回复 绑定）</p>
+					<p class="splicit-info">照片内容：“笑脸”照片可以是新生、家人和录取通知书合照。</p>
+					<p class="title host" style="color: #ed7356">红岩网校工作站2016新生交流群:459832901</p>
+					<!-- <p class="splicit-info1">9月13日晚上19：00   将会展示最美笑脸</p> -->
+					<img class="person" src="./__PUBLIC__/images/person.png" alt="人物">
 				</div>				
 			</div>
 		</div>
 		<div class="part-third">
 			<div class="smile-show">
-				<img class="smileshow" src="__PUBLIC__/images/smileshow.png" alt="笑脸展示">
+				<img class="smileshow" src="./__PUBLIC__/images/smileshow.png" alt="笑脸展示">
 				<div class="smileimgs">
 					<div class="show-first">
 						<input class="fill-id" type="text" placeholder="输入笑脸编号"><input class="search" type="button" value="搜索">
-						<ul><a class="second-line clicked-ul" id="b1" href="javascript:void(0);">综合<i class="iconfont">&#xe60a;</i></a>
+						<ul><a class="second-line clicked-ul" id="b1" href="javascript:void(0);">最新<i class="iconfont">&#xe60a;</i></a>
 							<div class="li-container" id="c1">
-								<li><a class="second-line" href="#">综合</a></li>
-							    <li><a class="first-line" href="#">人气</a></li>
-    							<li><a class="second-line" href="#">最新</a></li>
+							    <li><a class="second-line" href="#">人气</a></li>
+    							<li><a class="first-line" href="#">最新</a></li>
 							</div>
 						</ul>
 						<ul><a class="second-line clicked-ul" id="b2" href="javascript:void(0);">全部<i class="iconfont">&#xe60a;</i></a>
@@ -58,7 +66,7 @@
 						<div class="package">
 							<div class="show-second">
         						
-    					    </div>
+    					</div>
 						</div>			
 					</div>
 					</div>
@@ -74,6 +82,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<script>
 		$(function () {
 			var con = $(".container")[0],
@@ -111,51 +120,51 @@
 				text = $(".fill-id"),
 				str1 = "综合",
 				str2 = "全部",
-				url_l = "index.php?m=Home&c=smile&a=index";
+				url_l = "./index.php?m=Home&c=smile&a=index";
 			loadingData1();
 			for(i = 0;i < con.children.length;i++){
 				height += con.children[i].offsetHeight;
 			}
 			loading.css('top',height - loading.height() + 1);
 			document.addEventListener("touchstart",function (e) {	
-				check = true;
-				oldP = oldY = e.touches[0].pageY;				
+				// check = true;
+				// oldP = oldY = e.touches[0].pageY;				
 			})
 			document.addEventListener("touchmove",function (e) {
-				if(check&&con.scrollTop + con.offsetHeight + 1 >= height){
-					scrollT = con.scrollTop;
-					newP = newY = e.touches[0].pageY;
-					if(newY - oldY < -20){
-						oldY = newY + 20;
-					}
-					e.preventDefault();
-					con.scrollTop -= newY - oldY;
-					if(newY - oldY < 0){
-						loading.css('height',loading.height() + 10 + "px");		
-						if(newP - oldP < -300){
-							check_lodingData = true;
-							loading_content.html('<span class="uers-tell">松手刷新.....</span>');
-						}else{
-							loading_content.html('<span class="uers-tell">点击刷新</span>');
-						}
-					}else{
-						check_lodingData = false;
-						loading.css('height',loading.height() - 10 + "px");
-					}
-					oldY = newY;
-					check_top = true;
-				}
+				// if(check&&con.scrollTop + con.offsetHeight + 1 >= height){
+				// 	scrollT = con.scrollTop;
+				// 	newP = newY = e.touches[0].pageY;
+				// 	if(newY - oldY < -20){
+				// 		oldY = newY + 20;
+				// 	}
+				// 	e.preventDefault();
+				// 	con.scrollTop -= newY - oldY;
+				// 	if(newY - oldY < 0){
+				// 		loading.css('height',loading.height() + 10 + "px");		
+				// 		if(newP - oldP < -300){
+				// 			check_lodingData = true;
+				// 			loading_content.html('<span class="uers-tell">松手刷新.....</span>');
+				// 		}else{
+				// 			loading_content.html('<span class="uers-tell">点击刷新</span>');
+				// 		}
+				// 	}else{
+				// 		check_lodingData = false;
+				// 		loading.css('height',loading.height() - 10 + "px");
+				// 	}
+				// 	oldY = newY;
+				// 	check_top = true;
+				// }
 			})
 			document.addEventListener("touchend",function (e) {
-				loading_start();
+				// loading_start();
 			})
-			loading[0].addEventListener("touchend",function (e) {
+			loading[0].addEventListener("click",function (e) {
 				check_lodingData = true;
 				check_top = true;
 				loading_start();
 			})
 			function loadingData1() {
-				$.post("<{:U('Index/showpic')}>","time=" + start++ + "&sex=" + str2 + "&group=" + str1,function (res) {
+				$.post("./"+"<{:U('Index/showpic')}>","time=" + start++ + "&sex=" + str2 + "&group=" + str1,function (res) {
 					res = JSON.parse(res);
 					console.log(res);
 					loading_content.html('<span class="uers-tell">点击刷新</span>');
@@ -164,7 +173,7 @@
 							for(key in res[i]){
 								obj[key] = res[i][key];
 							}
-							fragment = '<div class="real-show"><span class="ranking">NO.'+ ++paiming +'</span><img class="real-pic" src="' +  "http://202.202.43.41/stuface/Public/allimage/" + obj.pic + '"><p class="word-info"><span class="zan"><i uid=' + obj.uid  + ' class="iconfont1"></i></span><span class="zan-num">' + parseInt(obj.vote) + '</span><span class="more-info"> <a class="more-info" href="' + url_l +  "&uid=" + obj.uid + '"><img src="__PUBLIC__/images/moreinfo.png"></a></span></p></div>';
+							fragment = '<div class="real-show"><span class="ranking">NO.'+ ++paiming +'</span><a href="' + url_l +  "&uid=" + obj.uid + '"><img class="real-pic" src="' +  "http://202.202.43.41/stuface/Public/allimage/" + obj.pic + '"></a><p class="word-info"><span class="zan"><i uid=' + obj.uid  + ' class="iconfont1"></i></span><span class="zan-num">' + parseInt(obj.vote) + '</span><span class="more-info"> <a class="more-info" href="' + url_l +  "&uid=" + obj.uid + '"><img src="./__PUBLIC__/images/moreinfo.png"></a></span></p></div>';
 							temp = fragment;
 							package_outer.append(fragment);
 							fragment = temp;
@@ -174,6 +183,9 @@
 						height = 0;
 						if(len == 0){
 							loading_content.html('<span class="uers-tell">没有更多了</span>');
+							setTimeout(function () {
+								loading_content.html('<span class="uers-tell">点击加载</span>');
+							},1000);
 						}
 						for(i = 0;i < con.children.length;i++){
 							height += con.children[i].offsetHeight;
@@ -196,15 +208,7 @@
 			package_outer[0].addEventListener("touchend",function (e) {
 				var target = e.target;
 				if(target.className == "iconfont1"){
-					$.post("<{:U('Smile/vote')}>","uid=" + target.getAttribute("uid"),function (res) {
-						console.log(res);
-						res = JSON.parse(res);
-						if(res){
-							target.parentNode.nextSibling.innerHTML = res.vote;
-						}else{
-							alert("你今天已经给这个笑脸投过票了");
-						}
-					})
+					alert('投票已经结束了哦');
 				}
 			})
 			var firstUl = $('.clicked-ul').eq(0),
@@ -218,6 +222,7 @@
 				};
 				$(this).addClass('first-line');
 				if (!$(secondUl).hasClass('second-line')) $(secondUl).addClass('second-line');
+				$(".li-container").eq(0).css('display',"block");
 			});
 			$(secondUl).bind("touchend",function () {
 				if ($(this).hasClass('second-line')) {
@@ -225,9 +230,10 @@
 				};
 				$(this).addClass('first-line');
 				if (!$(firstUl).hasClass('second-line')) $(firstUl).addClass('second-line');
+				$(".li-container").eq(1).css('display',"block");
 			});
 			$(".part-first").css({
-				"background":"url(Public/images/bodybg1.png) 50% 0 no-repeat",
+				"background":"url(Public/images/body_bg1_1.png) 50% 0 no-repeat",
 				"background-size":"100% 100%"
 			});
 			$("#c1").bind("click",function (e) {
@@ -237,10 +243,13 @@
 				if(target.nodeName = "A"&&!target.id){
 					first.text($(target).html());
 					str1 = first.text();
+					first.html(first.html() + '<i class="iconfont">&#xe60a;</i>');
 					package_outer.html("");
 					check_lodingData = true;
 					check_top = true;
+					loading_start();
 					loadingData1();
+					$(".li-container").css('display',"none");
 				}
 			})
 			$("#c2").bind("click",function (e) {
@@ -250,24 +259,103 @@
 				if(target.nodeName = "A"&&!target.id){
 					second.text($(target).html());
 					str2 = second.text();
+					second.html(second.html() + '<i class="iconfont">&#xe60a;</i>');
 					package_outer.html("");
 					check_lodingData = true;
 					check_top = true;
 					loading_start();
 					loadingData1();
+					$(".li-container").css('display',"none");
 				}
 			})
 			$(".search").click(function () {
 				var value = text.val();
-				$.post("<{:U('Smile/select')}>","uid=" + value,function (res) {
+				$.post("<{:U('Smile/select')}>","id=" + value,function (res) {
+					res = JSON.parse(res);
 					if(res){
-						window.location = "index.php?m=Home&c=smile&a=index&uid=" + value;
+						window.location = "./index.php?m=Home&c=smile&a=index&id=" + value;
 					}else{
 						alert("没有这个笑脸哦");
 					}
 				})
 			})
 		})
+
+		var shareTitle = '[新生笑脸]快来参加2016重邮迎新季——“寻找最美笑脸”活动之“晒晒通知书”，有好礼哦！',
+			shareLink = window.location.href,
+			shareImg = 'http://hongyan.cqupt.edu.cn/stufaceMo//Public/images/share_img.png';
+
+		wx.config({
+		    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+		    appId: "<?php echo $jsapi['appId']?>", // 必填，公众号的唯一标识
+		    timestamp: "<?php echo $jsapi['timestamp']?>", // 必填，生成签名的时间戳
+		    nonceStr: "<?php echo $jsapi['nonceStr']?>", // 必填，生成签名的随机串
+		    signature: "<?php echo $jsapi['signature']?>",// 必填，签名，见附录1
+		    jsApiList: [
+		    	'onMenuShareTimeline', 'onMenuShareAppMessage',
+		    	'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone'
+		    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+
+		wx.ready(function(){
+			wx.onMenuShareTimeline({
+				title: shareTitle, // 分享标题
+			    link: shareLink, // 分享链接
+			    imgUrl: shareImg, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+			wx.onMenuShareAppMessage({
+				title: shareTitle, // 分享标题
+			    link: shareLink, // 分享链接
+			    imgUrl: shareImg, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+			wx.onMenuShareQQ({
+				title: shareTitle, // 分享标题
+			    link: shareLink, // 分享链接
+			    imgUrl: shareImg, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+			wx.onMenuShareWeibo({
+				title: shareTitle, // 分享标题
+			    link: shareLink, // 分享链接
+			    imgUrl: shareImg, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+			wx.onMenuShareQZone({
+				title: shareTitle, // 分享标题
+			    link: shareLink, // 分享链接
+			    imgUrl: shareImg, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+		});
+
+
 	</script>
 </body>
 </html>
